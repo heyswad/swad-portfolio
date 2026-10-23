@@ -24,7 +24,7 @@ ul,ol{list-style:none}
 :focus-visible{outline:2px solid var(--red);outline-offset:3px}
 
 /* ---------- layers ---------- */
-.layer-back{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden;mix-blend-mode:multiply}
+.layer-back{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
 .stage{position:fixed;inset:0;width:100vw;height:100vh;z-index:1;pointer-events:none;will-change:contents;transform:translateZ(0)}
 .layer-front{position:fixed;inset:0;z-index:3;pointer-events:none;overflow:hidden}
 main{position:relative;z-index:4}
@@ -160,7 +160,7 @@ html:not(.has-cursor) .c-dot,html:not(.has-cursor) .c-ring{display:none}
 @keyframes heat{from{opacity:.15}to{opacity:.95}}
 
 /* ---------- JOURNEY ---------- */
-.journey-year{position:absolute;left:2vw;top:12vh;font-size:44vh;opacity:.9;line-height:1;color:transparent;-webkit-text-stroke:2px var(--red);white-space:nowrap}
+.journey-year{position:absolute;left:2vw;top:12vh;font-size:44vh;opacity:.55;line-height:1;color:transparent;-webkit-text-stroke:2px var(--red);white-space:nowrap}
 .journey-year .odo-win{height:1em}
 .journey-col{position:absolute;right:5vw;top:12vh;bottom:6vh;width:min(40vw,620px);display:flex;flex-direction:column;gap:3vh}
 .sec-title{font-size:clamp(48px,5.6vw,108px);line-height:.88}
@@ -211,7 +211,7 @@ html:not(.has-cursor) .c-dot,html:not(.has-cursor) .c-ring{display:none}
 .cert-b{transform:rotateY(180deg);background:linear-gradient(135deg,#ffd9d9,#ffefef)}
 
 /* ---------- CONTACT ---------- */
-.contact-red{position:absolute;inset:0;background:var(--red)}
+.contact-red{position:absolute;inset:0;background:rgba(255,31,31,.9)}
 .talk{position:absolute;left:50%;top:10vh;display:flex;flex-direction:column;align-items:center;font-size:min(36vh,26vw);line-height:.84;color:#fff}
 .contact-body{position:absolute;inset:0;color:#fff}
 .label.on-red{color:rgba(255,255,255,.85)}.label.on-red b{color:#fff}

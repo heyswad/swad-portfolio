@@ -5,7 +5,7 @@ import { SCENES, subscribe, type World } from '../engine/director';
 export default function Stage() {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
-    const cv = ref.current!; const ctx = cv.getContext('2d', { alpha: true, desynchronized: true })!;
+    const cv = ref.current!; const ctx = cv.getContext('2d', { alpha: true })!;
     let key = ''; let px = 0, py = 0; let dpr = 1;
     const fit = (w: World) => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -19,9 +19,9 @@ export default function Stage() {
       ctx.fillRect(Math.min(x0, x1), Math.min(y0, y1), Math.abs(x1 - x0) || w0.vw, Math.abs(y1 - y0) || w0.vh);
     };
     let w0: World;
-    const drawShot = (w: World, f: number, _x: number, _k: number, dx: number) => {
+    const drawShot = (w: World, f: number, _x: number, _k: number, dx: number, follow = true) => {
       const m = frames.manifest; if (!m) return;
-      const img = getFrame(Math.round(f)); if (!img) return;
+      const img = getFrame(Math.round(f), follow); if (!img) return;
       const { vw, vh } = w; w0 = w;
       let S: number, offX: number, offY: number;
       if (w.mobile) {
@@ -52,7 +52,7 @@ export default function Stage() {
       px += (tx - px) * 0.06; py += (ty - py) * 0.06;
       if (Math.abs(tx - px) < 0.05) px = tx; if (Math.abs(ty - py) < 0.05) py = ty;
       const F = w.f;
-      const k2 = `${frames.level[Math.round(F.frame)] ?? 0}|${F.prev ? frames.level[Math.round(F.prev.frame)] ?? 0 : 0}|${Math.round(F.frame)}|${F.t.toFixed(4)}|${F.prev?.frame ?? -1}|${F.active}|${w.vw}x${w.vh}|${frames.loaded}|${px.toFixed(2)}|${py.toFixed(2)}`;
+      const k2 = `${frames.version}|${Math.round(F.frame)}|${F.t.toFixed(4)}|${F.prev?.frame ?? -1}|${F.active}|${w.vw}x${w.vh}|${px.toFixed(2)}|${py.toFixed(2)}`;
       if (k2 === key) return; key = k2;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
@@ -63,7 +63,7 @@ export default function Stage() {
         // outgoing: right of the blade
         ctx.save(); ctx.beginPath();
         ctx.moveTo(e + skew, 0); ctx.lineTo(vw + 20, 0); ctx.lineTo(vw + 20, vh); ctx.lineTo(e - skew, vh); ctx.closePath(); ctx.clip();
-        ctx.globalAlpha = 1 - 0.35 * t; drawShot(w, F.prev.frame, F.prev.x, F.prev.k, 30 * t);
+        ctx.globalAlpha = 1 - 0.35 * t; drawShot(w, F.prev.frame, F.prev.x, F.prev.k, 30 * t, false);
         ctx.restore();
         // incoming: left of the blade
         ctx.save(); ctx.beginPath();
@@ -78,8 +78,9 @@ export default function Stage() {
         g.addColorStop(0, `rgba(${col},0)`); g.addColorStop(1, `rgba(${col},.28)`);
         ctx.fillStyle = g; ctx.beginPath();
         ctx.moveTo(e + skew - 90, 0); ctx.lineTo(e + skew, 0); ctx.lineTo(e - skew, vh); ctx.lineTo(e - skew - 90, vh); ctx.closePath(); ctx.fill();
-        ctx.strokeStyle = `rgb(${col})`; ctx.lineWidth = 3; ctx.shadowColor = `rgb(${col})`; ctx.shadowBlur = 24;
+        ctx.strokeStyle = `rgb(${col})`; ctx.lineWidth = 3;
         ctx.beginPath(); ctx.moveTo(e + skew, 0); ctx.lineTo(e - skew, vh); ctx.stroke();
+        ctx.globalAlpha = 0.25; ctx.lineWidth = 14; ctx.stroke();
         ctx.restore();
       } else {
         drawShot(w, F.frame, F.cur.x, F.cur.k, 0);
