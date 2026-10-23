@@ -25,7 +25,10 @@ const Odometer = forwardRef<OdoHandle, { digits: number; className?: string }>((
         const el = cols.current[d];
         if (el) {
           el.style.transform = `translateY(${(-pos * 100 / 11).toFixed(3)}%)`;
-          el.parentElement!.style.opacity = v < place && d < digits - 1 ? '0.18' : '1';
+          const lead = v < place - 0.5 && d < digits - 1;
+          const win = el.parentElement!;
+          win.style.opacity = lead ? '0' : '1';
+          win.style.width = lead ? '0' : '';
         }
       }
     },
