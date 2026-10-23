@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Swad: AI product builder and D2C founder from Mumbai. Ships AI products and scales e-commerce brands.">
+<meta property="og:title" content="Swad | AI Product Builder">
+<meta property="og:description" content="Founder of a 10-brand D2C company, now shipping AI products end to end.">
+<meta property="og:image" content="https://swad.ecomprofix.com/swad-hero.webp">
+<title>Swad Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: full-bleed hero (white glow center, dusty-rose → light-maroon edges; left intro / center character / right reaction / bottom cue) → calm editorial sections in the same rose palette */
+:root{
+  --white:#FFFFFF; --blush:#FBF3F4; --rose:#F1DADF; --dusty:#DDB0BA; --maroon:#A65466; --wine:#6E2A3A;
+  --ink:#2B1B21; --muted:#7A6369; --line:#EED9DE; --pink:#C2607A;
+  --serif:"DM Serif Display", "Playfair Display", Georgia, "Times New Roman", serif;
+  --sans:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--white);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--rose);color:var(--wine)}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;text-wrap:balance;letter-spacing:-.01em}
+a{color:inherit}
+.label{font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--maroon)}
+.tbd{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;border:1px dashed var(--dusty);border-radius:99px;color:var(--maroon);vertical-align:middle;white-space:nowrap}
+
+/* ================= HERO ================= */
+.hero{position:relative;height:clamp(640px,100svh,940px);overflow:hidden;
+  background:radial-gradient(ellipse 64% 78% at 50% 62%,#FFFFFF 0%,#FFFFFF 42%,#FCF4F5 58%,#F2DCE1 74%,#E2BAC3 88%,#CF98A5 100%)}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:120px;background:linear-gradient(transparent,var(--white));pointer-events:none;z-index:3}
+nav{position:absolute;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:10}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:26px;gap:20px}
+.brand{font-size:11.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--wine);text-decoration:none}
+nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0}
+nav ul a{font-size:13px;font-weight:600;color:var(--ink);opacity:.7;text-decoration:none;transition:opacity .2s}
+nav ul a:hover{opacity:1}
+@media (max-width:820px){nav ul{display:none}}
+
+.intro{position:absolute;z-index:6;left:max(24px,calc((100vw - 1200px)/2 + 24px));top:clamp(96px,15vh,150px);display:flex;flex-direction:column;gap:6px;max-width:340px}
+.intro h1{font-size:clamp(52px,6.4vw,92px);line-height:.92;color:var(--ink)}
+.intro h1 span{display:block;color:var(--pink)}
+.intro .role{margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--wine);opacity:.75}
+.callme{margin-top:26px;display:inline-flex;align-items:center;gap:12px;align-self:flex-start;padding:10px 16px 10px 12px;border-radius:12px;background:rgba(255,255,255,.75);border:1px solid var(--line);backdrop-filter:blur(6px);font-size:13px;font-weight:600;color:var(--ink);box-shadow:0 8px 24px -14px rgba(110,42,58,.35)}
+.cur{position:relative;width:22px;height:22px}
+.cur svg{position:absolute;inset:0;width:22px;height:22px;animation:nudge 2.4s infinite ease-in-out}
+.cur::after{content:"";position:absolute;left:3px;top:2px;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--maroon);animation:ripple 2.4s infinite}
+@keyframes nudge{0%,100%{transform:translate(0,0)}30%{transform:translate(5px,-3px)}60%{transform:translate(-3px,2px)}}
+@keyframes ripple{0%,30%{transform:scale(.4);opacity:0}45%{opacity:.9}80%,100%{transform:scale(2.4);opacity:0}}
+
+.stage{position:absolute;z-index:2;left:57%;bottom:0;transform:translateX(-50%);height:min(88%,820px);aspect-ratio:1100/1122;max-width:92vw}
+.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center bottom;-webkit-mask-image:radial-gradient(closest-side at 50% 50%,#000 70%,transparent 100%);mask-image:radial-gradient(closest-side at 50% 50%,#000 70%,transparent 100%);animation:breathe 7s ease-in-out infinite;transform-origin:50% 100%}
+.has-frames .photo{display:none}
+@keyframes breathe{50%{transform:scale(1.012)}}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:multiply}
+#cBack{transition:opacity .28s ease}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:7%}
+.has-frames .ph{display:none}
+.ph .slot{width:min(360px,46%);aspect-ratio:3/3.4;border-radius:48% 48% 22% 22%;border:1.5px dashed var(--dusty);display:grid;place-items:center;text-align:center;font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--maroon);background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.9),rgba(255,255,255,0) 70%);margin-bottom:-6%}
+.ph .slot span{max-width:18ch;opacity:.8}
+.lap{position:relative;width:min(520px,62%);aspect-ratio:520/250}
+.lap .lid{position:absolute;inset:0 6% 9% 6%;border-radius:12px 12px 4px 4px;background:linear-gradient(160deg,#E9EBEF,#CDD1D8 60%,#BFC4CC);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7),0 30px 50px -30px rgba(110,42,58,.5)}
+.lap .lid::after{content:"";position:absolute;left:50%;top:44%;width:22px;height:22px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(255,255,255,.65)}
+.lap .base{position:absolute;left:0;right:0;bottom:0;height:10%;border-radius:4px 4px 14px 14px;background:linear-gradient(#D5D9DF,#A9AFB8)}
+
+.msg{position:absolute;z-index:7;font-family:var(--serif);font-style:italic;font-size:clamp(18px,1.8vw,24px);color:var(--wine);padding:10px 18px;border-radius:16px;background:rgba(255,255,255,.82);border:1px solid var(--line);backdrop-filter:blur(6px);box-shadow:0 14px 36px -18px rgba(110,42,58,.45);opacity:0;transform:translateY(8px) scale(.96);transition:opacity .45s ease,transform .45s cubic-bezier(.2,1.2,.4,1);pointer-events:none;white-space:nowrap}
+.msg.on{opacity:1;transform:none}
+#mL{left:max(24px,calc((100vw - 1200px)/2 + 24px));top:56%}
+#mR{right:max(24px,calc((100vw - 1200px)/2 + 24px));top:40%}
+#mC{left:50%;top:clamp(88px,13vh,130px);transform:translate(-50%,8px) scale(.96)}
+#mC.on{transform:translate(-50%,0)}
+.zones{position:absolute;inset:0;z-index:5;display:grid;grid-template-columns:1fr 1fr 1fr}
+.cue{position:absolute;z-index:8;left:50%;bottom:22px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--wine);text-decoration:none;opacity:.8}
+.cue i{width:1px;height:34px;background:linear-gradient(var(--wine),transparent);animation:drop 1.8s infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+@media (max-width:820px){
+  .hero{height:auto;min-height:640px;padding-bottom:0;display:flex;flex-direction:column;
+    background:radial-gradient(ellipse 80% 55% at 50% 66%,#FFFFFF 0%,#FFFFFF 34%,#F6E3E7 60%,#DFB1BC 86%,#C78997 100%)}
+  .intro{position:relative;left:auto;top:auto;padding:104px 24px 0;align-items:center;text-align:center;max-width:none}
+  .intro h1 span{display:inline}
+  .callme{align-self:center}
+  .stage{position:relative;left:auto;transform:none;width:100%;height:auto;max-width:none;margin-top:10px;aspect-ratio:1100/1122}
+  .stage canvas{object-fit:cover}
+  #mL,#mR,.zones{display:none}
+  #mC{top:auto;bottom:calc(100% - 4px)}
+  .cue{display:none}
+}
+
+/* ================= SECTIONS ================= */
+section{padding-block:110px}
+.head{display:flex;flex-direction:column;gap:14px;margin-bottom:54px;max-width:720px}
+.head h2{font-size:clamp(38px,5vw,62px);line-height:1.02}
+.head h2 em{color:var(--pink)}
+.head p{margin:0;color:var(--muted);font-size:17px;max-width:54ch}
+
+.about{display:grid;grid-template-columns:.4fr 1fr;gap:40px;align-items:start}
+.about p{font-family:var(--serif);font-size:clamp(26px,3.2vw,42px);line-height:1.25;margin:0;color:var(--ink)}
+.about .w{opacity:.22;transition:opacity .25s}
+.about .w.on{opacity:1}
+.about .w.hl{color:var(--pink)}
+@media (max-width:820px){.about{grid-template-columns:1fr;gap:18px}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.stat{padding:30px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px;min-width:0;transition:background .3s}
+.stat:hover{background:var(--blush)}
+.stat .n{font-family:var(--serif);font-size:clamp(42px,4.6vw,64px);line-height:1;color:var(--wine);font-variant-numeric:tabular-nums}
+.stat .l{font-size:14px;color:var(--muted);font-weight:500;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+@media (max-width:820px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+#work{background:var(--blush);padding-bottom:90px}
+.reel{position:relative}
+.rtrack{display:flex;gap:22px;padding-left:max(24px,calc((100vw - 1200px)/2 + 24px));padding-right:24px;width:max-content}
+.card{width:min(400px,80vw);flex:none;background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -34px rgba(110,42,58,.45)}
+.card .top{position:relative;aspect-ratio:16/10;background:radial-gradient(ellipse at 50% 70%,#fff 0%,var(--rose) 70%,var(--dusty) 100%);display:flex;align-items:flex-end;padding:22px}
+.card .top b{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1;color:var(--wine)}
+.card .st{position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px;border-radius:99px;background:rgba(255,255,255,.85);color:var(--wine)}
+.card .st.live{color:#2F7A55}
+.card .st.live::before{content:"● "}
+.card .body{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card .k{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--maroon)}
+.card h3{font-size:25px;line-height:1.15}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}
+.tags span{font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--blush);border:1px solid var(--line);color:var(--wine)}
+.go{font-size:13.5px;font-weight:700;color:var(--pink);text-decoration:none}
+.card.wide{width:min(560px,86vw)}
+.card.wide .top{background:linear-gradient(135deg,var(--wine),var(--maroon) 60%,var(--dusty));flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:14px}
+.card.wide .top b{color:#fff;font-size:46px}
+.brands{display:flex;flex-wrap:wrap;gap:6px}
+.brands span{font-size:12px;font-weight:600;color:#fff;padding:4px 10px;border-radius:99px;border:1px solid rgba(255,255,255,.35)}
+.rfoot{display:flex;align-items:center;gap:18px;margin-top:34px}
+.bar{flex:1;max-width:320px;height:2px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--maroon);transform-origin:left;transform:scaleX(.06)}
+.rfoot span{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:899px){.reel{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}.card{scroll-snap-align:start}}
+
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line)}
+.sk{padding:34px 34px 34px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:56px 1fr;gap:20px;min-width:0}
+.sk:nth-child(even){padding-left:34px;padding-right:0;border-left:1px solid var(--line)}
+.sk .no{font-family:var(--serif);font-size:30px;color:var(--dusty);line-height:1}
+.sk h3{font-size:26px;margin-bottom:8px}
+.sk p{margin:0 0 14px;color:var(--muted);font-size:15px}
+@media (max-width:820px){.skills{grid-template-columns:1fr}.sk,.sk:nth-child(even){padding:28px 0;border-left:0}}
+
+.journey{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative;padding-top:34px}
+.journey::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--line)}
+.jfill{position:absolute;top:0;left:0;height:2px;width:100%;background:var(--maroon);transform-origin:left;transform:scaleX(.06)}
+.jp{position:relative;display:flex;flex-direction:column;gap:8px;min-width:0}
+.jp::before{content:"";position:absolute;top:-40px;left:0;width:11px;height:11px;border-radius:50%;background:var(--white);border:2px solid var(--maroon)}
+.jp .k{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--pink)}
+.jp h3{font-size:24px}
+.jp p{margin:0;color:var(--muted);font-size:15px}
+@media (max-width:820px){.journey{grid-template-columns:1fr 1fr;row-gap:48px}}
+@media (max-width:520px){.journey{grid-template-columns:1fr}}
+
+.offer{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.of{padding:34px 30px;border-radius:22px;background:var(--blush);border:1px solid var(--line);display:flex;flex-direction:column;gap:12px;transition:transform .4s,background .4s}
+.of:hover{transform:translateY(-6px);background:var(--rose)}
+.of .k{font-family:var(--serif);font-style:italic;font-size:44px;line-height:1;color:var(--pink)}
+.of h3{font-size:24px;line-height:1.2}
+.of p{margin:0;color:var(--muted);font-size:15px}
+@media (max-width:820px){.offer{grid-template-columns:1fr}}
+
+.contact{position:relative;overflow:hidden;text-align:center;padding-block:130px 70px;background:radial-gradient(ellipse 50% 70% at 50% 50%,#fff 0%,#fff 30%,#F3DDE2 65%,#D9A6B2 100%)}
+.contact .in{display:flex;flex-direction:column;align-items:center;gap:26px}
+.contact h2{font-size:clamp(48px,8vw,112px);line-height:.95}
+.contact h2 em{color:var(--pink)}
+.mail{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;padding:10px 10px 10px 22px;border-radius:16px;background:rgba(255,255,255,.85);border:1px solid var(--line);max-width:100%}
+.mail span{font-size:clamp(15px,2vw,19px);font-weight:600;user-select:all;overflow-wrap:anywhere;min-width:0}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 14px var(--sans);padding:12px 20px;border-radius:12px;border:1px solid var(--wine);background:var(--wine);color:#fff;text-decoration:none;cursor:pointer;transition:transform .25s,background .25s}
+.btn:hover{transform:translateY(-2px);background:var(--maroon)}
+.btn.ghost{background:transparent;color:var(--wine);border-color:var(--dusty)}
+.btn.ghost:hover{background:#fff}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--maroon);outline-offset:3px}
+.links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+footer{padding-block:24px;font-size:12.5px;color:var(--muted);background:var(--white)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,90px);background:var(--wine);color:#fff;padding:10px 20px;border-radius:99px;font-size:13.5px;font-weight:700;transition:.35s;z-index:50}
+.toast.on{transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="hero" id="top">
+  <nav><div class="wrap">
+    <a class="brand" href="#top">Swad · Portfolio</a>
+    <ul><li><a href="#about" data-scroll>About</a></li><li><a href="#work" data-scroll>Work</a></li><li><a href="#skills" data-scroll>Skills</a></li><li><a href="#contact" data-scroll>Contact</a></li></ul>
+  </div></nav>
+
+  <div class="intro">
+    <h1>I'm <span>Swad</span></h1>
+    <div class="role">AI Product Builder · D2C Founder</div>
+    <div class="callme"><span class="cur"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 7-6 2-2 6z" fill="#6E2A3A"/></svg></span>Move cursor to call me !</div>
+  </div>
+
+  <div class="stage" id="stage">
+    <canvas id="cBack"></canvas><canvas id="cFront"></canvas>
+    <img class="photo" src="swad-hero.webp" alt="Swad at his desk, working on a laptop" width="1100" height="1122">
+  </div>
+
+  <div class="zones" id="zones" aria-hidden="true"><div data-z="left"></div><div data-z="center"></div><div data-z="right"></div></div>
+  <div class="msg" id="mL">Anyone here on the left?</div>
+  <div class="msg" id="mR">Anyone here on the right?</div>
+  <div class="msg" id="mC">Hey, it's you!</div>
+  <a class="cue" href="#about" data-scroll><i></i>Explore the portfolio</a>
+</header>
+
+<section id="about"><div class="wrap about">
+  <div class="label">About me</div>
+  <p id="mani">I built a ten-brand Ayurvedic D2C company from zero. I ran the ads, trained the sales team and owned the P&amp;L. Today I use that same instinct for revenue to build AI products people actually pay for.</p>
+</div></section>
+
+<section id="impact" style="padding-top:0"><div class="wrap">
+  <div class="head"><div class="label">Impact</div><h2>Numbers from <em>real</em> businesses</h2><p>Every figure comes from companies I own and run myself.</p></div>
+  <div class="stats">
+    <div class="stat"><div class="n">₹ —</div><div class="l">Revenue generated <span class="tbd">add</span></div></div>
+    <div class="stat"><div class="n" data-count="10" data-suffix="+">10+</div><div class="l">D2C brands launched</div></div>
+    <div class="stat"><div class="n" data-count="6" data-suffix="+">6+</div><div class="l">AI products built</div></div>
+    <div class="stat"><div class="n">—</div><div class="l">Orders shipped <span class="tbd">add</span></div></div>
+    <div class="stat"><div class="n">₹ —</div><div class="l">Ad spend managed <span class="tbd">add</span></div></div>
+    <div class="stat"><div class="n">— x</div><div class="l">Best ROAS <span class="tbd">add</span></div></div>
+    <div class="stat"><div class="n">—</div><div class="l">People hired &amp; trained <span class="tbd">add</span></div></div>
+    <div class="stat"><div class="n">— %</div><div class="l">RTO reduced <span class="tbd">add</span></div></div>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap"><div class="head"><div class="label">Selected work</div><h2>Built, shipped, <em>selling</em></h2><p>Each one started as a problem I or my customers actually had.</p></div></div>
+  <div class="reel" id="reel"><div class="rtrack" id="rtrack">
+    <article class="card wide"><div class="top"><span class="st">Founder</span><div class="brands"><span>AyurBurn</span><span>Narie Bloom</span><span>Glowveda</span><span>GainVeda</span><span>Arsh Amrit</span><span>Eyeur</span><span>She Herbal</span><span>Garbhaamrit</span><span>Men Need</span></div><b>Saviour Group</b></div>
+      <div class="body"><div class="k">D2C · Ayurveda · 10+ brands</div><h3>A multi-brand company built from zero</h3><p>Shopify stores, Meta ads with CAPI tracking, WhatsApp sales teams, COD and RTO operations, courier integrations and a daily P&amp;L.</p><div class="tags"><span>Shopify</span><span>Meta Ads</span><span>WhatsApp</span><span>P&amp;L</span></div></div></article>
+    <article class="card"><div class="top"><span class="st live">Live</span><b>Kuchupuchu</b></div>
+      <div class="body"><div class="k">AI · Pet care</div><h3>An AI vet in your pocket</h3><p>Pet profiles, an AI doctor, diet plans, a pet shop and street-dog donations. Plus plan at ₹99/month.</p><div class="tags"><span>Lovable</span><span>Supabase</span><span>AI</span></div><a class="go" href="https://kuchupuchu.ecomprofix.com" target="_blank" rel="noopener">Open live app ↗</a></div></article>
+    <article class="card"><div class="top"><span class="st">In build</span><b>Chhotu</b></div>
+      <div class="body"><div class="k">AI agent · E-commerce</div><h3>An agent that builds the store and runs the ads</h3><p>Researches winning products, builds the store, makes creatives and launches ads from one chat box.</p><div class="tags"><span>Claude API</span><span>Automation</span></div></div></article>
+    <article class="card"><div class="top"><span class="st">In build</span><b>Ayurworks</b></div>
+      <div class="body"><div class="k">Logistics · OMS</div><h3>Order operations with an AI assistant</h3><p>Connects Shopify, Shiprocket and Xpressbees. Ask for yesterday's report and it answers.</p><div class="tags"><span>Supabase</span><span>Courier APIs</span><span>Claude</span></div></div></article>
+    <article class="card"><div class="top"><span class="st">Prototype</span><b>future.ai</b></div>
+      <div class="body"><div class="k">AI · Consumer</div><h3>AI prediction platform</h3><p>Grew out of my VERDICT prototype, with Razorpay payments built in for an India launch.</p><div class="tags"><span>Lovable</span><span>Supabase</span><span>Razorpay</span></div></div></article>
+    <article class="card"><div class="top"><span class="st">Client</span><b>Home Planner</b></div>
+      <div class="body"><div class="k">AI · Construction</div><h3>AI home planning in 3D</h3><p>A website for a Mumbai contractor where clients plan their home and get a 3D design from AI.</p><div class="tags"><span>AI</span><span>3D</span></div></div></article>
+    <article class="card"><div class="top"><span class="st">In build</span><b>Palava Homes</b></div>
+      <div class="body"><div class="k">Real estate · Leads</div><h3>A flat finder for a township</h3><p>Tenants pick requirements, see flats and book visits, and brokers get the lead instantly.</p><div class="tags"><span>Web app</span><span>Lead routing</span></div></div></article>
+  </div></div>
+  <div class="wrap rfoot"><div class="bar"><i id="prog"></i></div><span>Scroll to explore</span></div>
+</section>
+
+<section id="skills"><div class="wrap">
+  <div class="head"><div class="label">Skills</div><h2>Growth brain, <em>builder hands</em></h2></div>
+  <div class="skills">
+    <div class="sk"><div class="no">01</div><div><h3>Performance marketing</h3><p>Paid acquisition that turns ad spend into profit.</p><div class="tags"><span>Meta Ads</span><span>Conversion API</span><span>Pixel tracking</span><span>WhatsApp funnels</span><span>Instagram sales</span></div></div></div>
+    <div class="sk"><div class="no">02</div><div><h3>AI product building</h3><p>Full-stack AI apps, from idea to paying users.</p><div class="tags"><span>Claude API</span><span>AI agents</span><span>Lovable</span><span>Supabase</span><span>Razorpay</span><span>Browser automation</span></div></div></div>
+    <div class="sk"><div class="no">03</div><div><h3>E-commerce operations</h3><p>The unglamorous work that decides profit.</p><div class="tags"><span>Shopify</span><span>COD vs prepaid</span><span>RTO reduction</span><span>Shiprocket</span><span>Inventory</span></div></div></div>
+    <div class="sk"><div class="no">04</div><div><h3>Leadership &amp; operations</h3><p>Teams and systems that keep running without me.</p><div class="tags"><span>Hiring</span><span>Sales training</span><span>Unit economics</span><span>VICIdial</span><span>Dashboards</span></div></div></div>
+  </div>
+</div></section>
+
+<section id="journey" style="padding-top:20px"><div class="wrap">
+  <div class="head"><div class="label">Journey</div><h2>From one product to <em>two hundred</em></h2></div>
+  <div class="journey" id="jr"><span class="jfill" id="jfill"></span>
+    <div class="jp"><div class="k">Chapter one</div><h3>Started Saviour</h3><p>Launched the first Ayurvedic brand and learned Shopify and Meta ads with my own money.</p></div>
+    <div class="jp"><div class="k">Chapter two</div><h3>Scaled to 10+ brands</h3><p>Built a sales team, WhatsApp funnels and the tools to run many brands at once.</p></div>
+    <div class="jp"><div class="k">Chapter three</div><h3>All in on AI</h3><p>Started shipping AI products: Kuchupuchu, Chhotu, Ayurworks and more.</p></div>
+    <div class="jp"><div class="k">Next</div><h3>200 products</h3><p>Building in public, aiming for each product to reach ₹1L a month.</p></div>
+  </div>
+</div></section>
+
+<section id="offer" style="padding-top:20px"><div class="wrap">
+  <div class="head"><div class="label">Why hire me</div><h2>One hire, <em>three roles</em></h2></div>
+  <div class="offer">
+    <div class="of"><div class="k">Build</div><h3>Ship AI tools in days, not quarters</h3><p>From rough idea to a live product with auth, payments and an AI layer.</p></div>
+    <div class="of"><div class="k">Grow</div><h3>Turn ad spend into profit</h3><p>Acquisition, tracking and funnels from someone who paid for them himself.</p></div>
+    <div class="of"><div class="k">Run</div><h3>Systems that work without me</h3><p>Sales teams, SOPs, dashboards and automations that keep running after launch.</p></div>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap in">
+  <div class="label">Contact</div>
+  <h2>Let's build what <em>sells next</em></h2>
+  <div class="mail"><span id="email">marketingswad@gmail.com</span><button class="btn" id="copy" type="button">Copy email</button></div>
+  <div class="links"><a class="btn ghost" href="#" data-off>LinkedIn <span class="tbd">add</span></a><a class="btn ghost" href="#" data-off>GitHub <span class="tbd">add</span></a><a class="btn ghost" href="#" data-off>Resume <span class="tbd">add</span></a></div>
+</div></section>
+<footer><div class="wrap"><span>© 2026 Swad · Navi Mumbai, India</span><span>Open to full-time roles, remote or relocation</span></div></footer>
+<div class="toast" id="toast">Email copied</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+/* ================= CHARACTER FRAMES CONFIG =================
+   Filled in once the AI video is converted to frames.
+   Ranges are frame indexes in the single continuous video:
+   work → look left → look right → notice visitor → headset off → wave → point down */
+const FRAMES = {
+  base: 'frames/', ext: 'webp', pad: 4, count: 0, fps: 24,
+  work:  [0, 0],   // typing loop (ping-pong)
+  left:  [0, 0],   // turn to look left (last frame = held pose)
+  right: [0, 0],   // turn to look right
+  greet: [0, 0],   // notice → excited → headset to neck → wave → point down
+  hold: 2500
+};
+
+const isMobile = () => matchMedia('(max-width: 820px)').matches || !matchMedia('(pointer: fine)').matches;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const stage=document.getElementById('stage'), front=document.getElementById('cFront'), back=document.getElementById('cBack');
+const fx=front.getContext('2d'), bx=back.getContext('2d');
+const mL=document.getElementById('mL'), mR=document.getElementById('mR'), mC=document.getElementById('mC');
+const imgs=[]; let ready=false;
+
+/* ---- frame loading ---- */
+function src(i){ return FRAMES.base+String(i+1).padStart(FRAMES.pad,'0')+'.'+FRAMES.ext; }
+function loadFrames(){
+  if(!FRAMES.count) return;
+  let loaded=0;
+  for(let i=0;i<FRAMES.count;i++){ const im=new Image(); im.decoding='async'; im.src=src(i);
+    im.onload=()=>{ if(++loaded>=Math.min(FRAMES.count, FRAMES.work[1]+1) && !ready){ ready=true; stage.classList.add('has-frames'); size(); draw(cur); } };
+    imgs[i]=im; }
+}
+function size(){ const r=stage.getBoundingClientRect(), d=Math.min(devicePixelRatio||1,2);
+  [front,back].forEach(c=>{c.width=Math.round(r.width*d); c.height=Math.round(r.height*d);}); }
+function paint(ctx,i){ const im=imgs[i]; if(!im||!im.complete||!im.naturalWidth) return;
+  const cw=ctx.canvas.width, ch=ctx.canvas.height, s=Math.max(cw/im.naturalWidth, ch/im.naturalHeight);
+  const w=im.naturalWidth*s, h=im.naturalHeight*s; ctx.clearRect(0,0,cw,ch); ctx.drawImage(im,(cw-w)/2,ch-h,w,h); }
+let cur=0;
+function draw(i){ cur=i; paint(fx,i); }
+function crossTo(i){ // smooth jump between non-adjacent frames
+  bx.clearRect(0,0,back.width,back.height); bx.drawImage(front,0,0);
+  back.style.transition='none'; back.style.opacity=1; front.style.opacity=1; draw(i);
+  requestAnimationFrame(()=>{ back.style.transition='opacity .28s ease'; back.style.opacity=0; });
+}
+
+/* ---- playback engine (requestAnimationFrame) ---- */
+let anim=null; // {from,to,t0,dur,done}
+function play(from,to,done){ anim={from,to,t0:performance.now(),dur:Math.abs(to-from)/FRAMES.fps*1000||1,done}; }
+let workDir=1;
+function loop(now){
+  if(ready){
+    if(anim){ const p=Math.min(1,(now-anim.t0)/anim.dur); const f=Math.round(anim.from+(anim.to-anim.from)*p);
+      if(f!==cur) draw(f); if(p>=1){ const d=anim.done; anim=null; d&&d(); } }
+    else if(state==='work'){ // gentle ping-pong typing loop
+      if(!loop.last||now-loop.last>1000/FRAMES.fps){ loop.last=now; let n=cur+workDir;
+        if(n>FRAMES.work[1]||n<FRAMES.work[0]){ workDir*=-1; n=cur+workDir; }
+        if(n<FRAMES.work[0]||n>FRAMES.work[1]) n=FRAMES.work[0]; draw(n); } }
+  }
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+/* ---- state machine: the cursor only selects a zone ---- */
+let state='work', zone=null, holdT=null, msgT=[];
+function msgs(which){ mL.classList.toggle('on',which==='left'); mR.classList.toggle('on',which==='right'); if(which!=='center') mC.classList.remove('on'); }
+function clearTimers(){ clearTimeout(holdT); msgT.forEach(clearTimeout); msgT=[]; }
+function backToWork(){ clearTimers(); msgs(null);
+  if(ready && (state==='left'||state==='right')){ const r=FRAMES[state]; state='returning'; play(r[1],r[0],()=>{ crossTo(FRAMES.work[0]); state='work'; if(zone&&zone!==lastZoneHandled) enter(zone); }); }
+  else if(ready && state==='greet'){ state='returning'; crossTo(FRAMES.work[0]); state='work'; }
+  else state='work';
+}
+let lastZoneHandled=null;
+function enter(z){
+  lastZoneHandled=z;
+  if(state==='greet' || state==='returning') return;
+  clearTimers();
+  if(z==='left'||z==='right'){
+    msgs(z); state=z;
+    if(ready){ const r=FRAMES[z]; crossTo(r[0]); play(r[0],r[1],()=>{ holdT=setTimeout(backToWork,FRAMES.hold); }); }
+    else holdT=setTimeout(backToWork,FRAMES.hold);
+  } else if(z==='center'){ greet(); }
+}
+function greet(){
+  clearTimers(); msgs('center'); state='greet';
+  const lines=["Hey, it's you!","Hiiii!","Check out the portfolio"];
+  const total = ready ? (FRAMES.greet[1]-FRAMES.greet[0])/FRAMES.fps*1000 : 4200;
+  const say=t=>{ mC.classList.remove('on'); setTimeout(()=>{ mC.textContent=t; mC.classList.add('on'); },180); };
+  say(lines[0]); msgT.push(setTimeout(()=>say(lines[1]),total*.4), setTimeout(()=>say(lines[2]),total*.78));
+  const finish=()=>{ msgT.push(setTimeout(()=>{ if(zone!=='center') backToWork(); else { state='greetDone'; } }, FRAMES.hold)); };
+  if(ready){ crossTo(FRAMES.greet[0]); play(FRAMES.greet[0],FRAMES.greet[1],finish); }
+  else msgT.push(setTimeout(finish,total));
+}
+const zones=document.getElementById('zones');
+zones.querySelectorAll('[data-z]').forEach(el=>el.addEventListener('pointerenter',()=>{
+  zone=el.dataset.z;
+  if(state==='greetDone' && zone!=='center'){ backToWork(); }
+  if(state==='greetDone' && zone==='center') return;
+  enter(zone);
+}));
+zones.addEventListener('pointerleave',()=>{ zone=null; if(state==='greetDone') backToWork(); });
+
+/* mobile: center experience only */
+function mobileGreet(){ if(isMobile() && (state==='work')) greet(); }
+document.getElementById('top').addEventListener('click',e=>{ if(isMobile() && !e.target.closest('a')) mobileGreet(); });
+if('IntersectionObserver' in window){ new IntersectionObserver(es=>{ if(es[0].isIntersecting) setTimeout(mobileGreet,900); },{threshold:.5}).observe(stage); }
+
+addEventListener('resize',()=>{ if(ready){ size(); draw(cur); } });
+loadFrames();
+
+/* ================= PAGE ================= */
+const hasG=typeof gsap!=='undefined' && typeof ScrollTrigger!=='undefined';
+let lenis=null;
+if(!reduce && typeof Lenis!=='undefined'){ lenis=new Lenis({lerp:.1});
+  if(hasG){ lenis.on('scroll',ScrollTrigger.update); gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0); }
+  else { const r=t=>{lenis.raf(t);requestAnimationFrame(r)}; requestAnimationFrame(r); } }
+document.querySelectorAll('[data-scroll]').forEach(a=>a.addEventListener('click',e=>{ const el=document.querySelector(a.getAttribute('href')); if(!el)return; e.preventDefault(); lenis?lenis.scrollTo(el):el.scrollIntoView({behavior:'smooth'}); }));
+document.querySelectorAll('[data-off]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
+
+const mani=document.getElementById('mani'); const HL=['zero.','P&L.','revenue','pay'];
+mani.innerHTML=mani.textContent.trim().split(/\s+/).map(w=>`<span class="w${HL.includes(w)?' hl':''}">${w.replace(/&/g,'&amp;')}</span>`).join(' ');
+const ws=[...mani.querySelectorAll('.w')];
+function countUp(el){ const end=+el.dataset.count,suf=el.dataset.suffix||''; let t0=null; const st=t=>{t0??=t;const p=Math.min(1,(t-t0)/1300);el.textContent=Math.round(end*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(st)}; requestAnimationFrame(st); }
+
+if(hasG && !reduce){
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.timeline({defaults:{ease:'power3.out'}})
+    .from('.intro h1',{y:40,duration:1})
+    .from('.intro .role,.callme',{y:16,duration:.7,stagger:.1},'-=.6')
+    .from('.stage',{y:40,duration:1.2},'-=1');
+  ScrollTrigger.create({trigger:mani,start:'top 78%',end:'bottom 50%',scrub:true,onUpdate:s=>{const n=Math.ceil(s.progress*ws.length);ws.forEach((w,i)=>w.classList.toggle('on',i<n))}});
+  gsap.utils.toArray('.head').forEach(h=>gsap.from(h.children,{y:30,duration:.9,stagger:.08,scrollTrigger:{trigger:h,start:'top 85%'}}));
+  document.querySelectorAll('[data-count]').forEach(el=>ScrollTrigger.create({trigger:el,start:'top 92%',once:true,onEnter:()=>countUp(el)}));
+  gsap.from('.stat',{y:30,duration:.7,stagger:.05,ease:'power3.out',scrollTrigger:{trigger:'.stats',start:'top 82%'}});
+  gsap.from('.sk',{y:30,duration:.8,stagger:.08,ease:'power3.out',scrollTrigger:{trigger:'.skills',start:'top 82%'}});
+  gsap.from('.jp',{y:30,duration:.8,stagger:.12,ease:'power3.out',scrollTrigger:{trigger:'#jr',start:'top 82%'}});
+  gsap.to('#jfill',{scaleX:1,ease:'none',scrollTrigger:{trigger:'#jr',start:'top 85%',end:'bottom 55%',scrub:true}});
+  gsap.from('.of',{y:40,duration:.9,stagger:.1,ease:'power3.out',scrollTrigger:{trigger:'.offer',start:'top 82%'}});
+  gsap.from('.contact h2',{y:50,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:'.contact',start:'top 80%'}});
+  ScrollTrigger.matchMedia({'(min-width: 900px)':function(){
+    const tr=document.getElementById('rtrack'); const dist=()=>tr.scrollWidth-innerWidth+48;
+    gsap.to(tr,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#reel',start:'center center',end:()=>'+='+dist(),pin:'#work',scrub:1,invalidateOnRefresh:true,onUpdate:s=>gsap.set('#prog',{scaleX:Math.max(.06,s.progress)})}});
+  }});
+} else { document.querySelectorAll('[data-count]').forEach(countUp); ws.forEach(w=>w.classList.add('on')); }
+
+const toast=document.getElementById('toast');
+function show(m){toast.textContent=m;toast.classList.add('on');setTimeout(()=>toast.classList.remove('on'),1800)}
+document.getElementById('copy').onclick=()=>{ const t=document.getElementById('email').textContent;
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('email'));const s=getSelection();s.removeAllRanges();s.addRange(r)};
+  try{navigator.clipboard.writeText(t).then(()=>show('Email copied'),()=>{sel();show('Press Ctrl+C to copy')})}catch(e){sel();show('Press Ctrl+C to copy')} };
+</script>
+
+</body>
+</html>
