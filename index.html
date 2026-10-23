@@ -6,7 +6,7 @@
 <meta name="description" content="Swad: AI product builder and D2C founder from Mumbai. Ships AI products and scales e-commerce brands.">
 <meta property="og:title" content="Swad | AI Product Builder">
 <meta property="og:description" content="Founder of a 10-brand D2C company, now shipping AI products end to end.">
-<meta property="og:image" content="https://swad.ecomprofix.com/swad-hero.webp">
+<meta property="og:image" content="https://swad.ecomprofix.com/frames/0001.webp">
 <title>Swad Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +43,7 @@ nav ul a{font-size:13px;font-weight:600;color:var(--ink);opacity:.7;text-decorat
 nav ul a:hover{opacity:1}
 @media (max-width:820px){nav ul{display:none}}
 
-.intro{position:absolute;z-index:6;left:max(24px,calc((100vw - 1200px)/2 + 24px));top:clamp(96px,15vh,150px);display:flex;flex-direction:column;gap:6px;max-width:340px}
+.intro{position:absolute;z-index:6;right:max(24px,calc((100vw - 1200px)/2 + 24px));top:clamp(110px,20vh,190px);display:flex;flex-direction:column;gap:6px;max-width:340px}
 .intro h1{font-size:clamp(52px,6.4vw,92px);line-height:.92;color:var(--ink)}
 .intro h1 span{display:block;color:var(--pink)}
 .intro .role{margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--wine);opacity:.75}
@@ -54,11 +54,12 @@ nav ul a:hover{opacity:1}
 @keyframes nudge{0%,100%{transform:translate(0,0)}30%{transform:translate(5px,-3px)}60%{transform:translate(-3px,2px)}}
 @keyframes ripple{0%,30%{transform:scale(.4);opacity:0}45%{opacity:.9}80%,100%{transform:scale(2.4);opacity:0}}
 
-.stage{position:absolute;z-index:2;left:57%;bottom:0;transform:translateX(-50%);height:min(88%,820px);aspect-ratio:1100/1122;max-width:92vw}
-.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center bottom;-webkit-mask-image:radial-gradient(closest-side at 50% 50%,#000 70%,transparent 100%);mask-image:radial-gradient(closest-side at 50% 50%,#000 70%,transparent 100%);animation:breathe 7s ease-in-out infinite;transform-origin:50% 100%}
+.stage{position:absolute;inset:0}
+.veil{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(ellipse 80% 90% at 40% 42%,transparent 52%,rgba(199,137,151,.55) 100%),linear-gradient(90deg,rgba(255,255,255,0) 52%,rgba(255,255,255,.5) 70%,rgba(255,255,255,.72) 100%)}
+.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
 .has-frames .photo{display:none}
 @keyframes breathe{50%{transform:scale(1.012)}}
-.stage canvas{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:multiply}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%}
 #cBack{transition:opacity .28s ease}
 .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:7%}
 .has-frames .ph{display:none}
@@ -72,9 +73,8 @@ nav ul a:hover{opacity:1}
 .msg{position:absolute;z-index:7;font-family:var(--serif);font-style:italic;font-size:clamp(18px,1.8vw,24px);color:var(--wine);padding:10px 18px;border-radius:16px;background:rgba(255,255,255,.82);border:1px solid var(--line);backdrop-filter:blur(6px);box-shadow:0 14px 36px -18px rgba(110,42,58,.45);opacity:0;transform:translateY(8px) scale(.96);transition:opacity .45s ease,transform .45s cubic-bezier(.2,1.2,.4,1);pointer-events:none;white-space:nowrap}
 .msg.on{opacity:1;transform:none}
 #mL{left:max(24px,calc((100vw - 1200px)/2 + 24px));top:56%}
-#mR{right:max(24px,calc((100vw - 1200px)/2 + 24px));top:40%}
-#mC{left:50%;top:clamp(88px,13vh,130px);transform:translate(-50%,8px) scale(.96)}
-#mC.on{transform:translate(-50%,0)}
+#mR{right:max(24px,calc((100vw - 1200px)/2 + 24px));top:68%}
+#mC{right:max(24px,calc((100vw - 1200px)/2 + 24px));top:clamp(70px,10vh,104px)}
 .zones{position:absolute;inset:0;z-index:5;display:grid;grid-template-columns:1fr 1fr 1fr}
 .cue{position:absolute;z-index:8;left:50%;bottom:22px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--wine);text-decoration:none;opacity:.8}
 .cue i{width:1px;height:34px;background:linear-gradient(var(--wine),transparent);animation:drop 1.8s infinite}
@@ -83,10 +83,11 @@ nav ul a:hover{opacity:1}
 @media (max-width:820px){
   .hero{height:auto;min-height:640px;padding-bottom:0;display:flex;flex-direction:column;
     background:radial-gradient(ellipse 80% 55% at 50% 66%,#FFFFFF 0%,#FFFFFF 34%,#F6E3E7 60%,#DFB1BC 86%,#C78997 100%)}
-  .intro{position:relative;left:auto;top:auto;padding:104px 24px 0;align-items:center;text-align:center;max-width:none}
+  .intro{position:relative;left:auto;right:auto;top:auto;padding:104px 24px 0;align-items:center;text-align:center;max-width:none}
   .intro h1 span{display:inline}
   .callme{align-self:center}
-  .stage{position:relative;left:auto;transform:none;width:100%;height:auto;max-width:none;margin-top:10px;aspect-ratio:1100/1122}
+  .stage{position:relative;inset:auto;width:100%;margin-top:14px;aspect-ratio:16/9;-webkit-mask-image:linear-gradient(transparent 0,#000 10%,#000 85%,transparent 100%);mask-image:linear-gradient(transparent 0,#000 10%,#000 85%,transparent 100%)}
+  .veil{display:none}
   .stage canvas{object-fit:cover}
   #mL,#mR,.zones{display:none}
   #mC{top:auto;bottom:calc(100% - 4px)}
@@ -205,9 +206,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
   <div class="stage" id="stage">
     <canvas id="cBack"></canvas><canvas id="cFront"></canvas>
-    <img class="photo" src="swad-hero.webp" alt="Swad at his desk, working on a laptop" width="1100" height="1122">
+    <img class="photo" src="frames/0037.webp" alt="Swad at his desk, working on a laptop" width="1280" height="720">
   </div>
 
+  <div class="veil" aria-hidden="true"></div>
   <div class="zones" id="zones" aria-hidden="true"><div data-z="left"></div><div data-z="center"></div><div data-z="right"></div></div>
   <div class="msg" id="mL">Anyone here on the left?</div>
   <div class="msg" id="mR">Anyone here on the right?</div>
@@ -301,11 +303,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
    Ranges are frame indexes in the single continuous video:
    work → look left → look right → notice visitor → headset off → wave → point down */
 const FRAMES = {
-  base: 'frames/', ext: 'webp', pad: 4, count: 0, fps: 24,
-  work:  [0, 0],   // typing loop (ping-pong)
-  left:  [0, 0],   // turn to look left (last frame = held pose)
-  right: [0, 0],   // turn to look right
-  greet: [0, 0],   // notice → excited → headset to neck → wave → point down
+  base: 'frames/', ext: 'webp', pad: 4, count: 240, fps: 24,
+  work:  [36, 80],   // typing loop (ping-pong)
+  left:  [80, 104],   // turn to look left (last frame = held pose)
+  right: [124, 156],   // turn to look right
+  greet: [30, 0],     // notice → excited → headset to neck → wave → point down
   hold: 2500
 };
 
@@ -329,7 +331,7 @@ function size(){ const r=stage.getBoundingClientRect(), d=Math.min(devicePixelRa
   [front,back].forEach(c=>{c.width=Math.round(r.width*d); c.height=Math.round(r.height*d);}); }
 function paint(ctx,i){ const im=imgs[i]; if(!im||!im.complete||!im.naturalWidth) return;
   const cw=ctx.canvas.width, ch=ctx.canvas.height, s=Math.max(cw/im.naturalWidth, ch/im.naturalHeight);
-  const w=im.naturalWidth*s, h=im.naturalHeight*s; ctx.clearRect(0,0,cw,ch); ctx.drawImage(im,(cw-w)/2,ch-h,w,h); }
+  const w=im.naturalWidth*s, h=im.naturalHeight*s; ctx.clearRect(0,0,cw,ch); ctx.drawImage(im,(cw-w)/2,(ch-h)/2,w,h); }
 let cur=0;
 function draw(i){ cur=i; paint(fx,i); }
 function crossTo(i){ // smooth jump between non-adjacent frames
@@ -360,8 +362,8 @@ let state='work', zone=null, holdT=null, msgT=[];
 function msgs(which){ mL.classList.toggle('on',which==='left'); mR.classList.toggle('on',which==='right'); if(which!=='center') mC.classList.remove('on'); }
 function clearTimers(){ clearTimeout(holdT); msgT.forEach(clearTimeout); msgT=[]; }
 function backToWork(){ clearTimers(); msgs(null);
-  if(ready && (state==='left'||state==='right')){ const r=FRAMES[state]; state='returning'; play(r[1],r[0],()=>{ crossTo(FRAMES.work[0]); state='work'; if(zone&&zone!==lastZoneHandled) enter(zone); }); }
-  else if(ready && state==='greet'){ state='returning'; crossTo(FRAMES.work[0]); state='work'; }
+  if(ready && (state==='left'||state==='right')){ const r=FRAMES[state]; state='returning'; play(r[1],r[0],()=>{ crossTo(FRAMES.work[1]); workDir=-1; state='work'; if(zone&&zone!==lastZoneHandled) enter(zone); }); }
+  else if(ready && (state==='greet'||state==='greetDone')){ state='returning'; play(FRAMES.greet[1],FRAMES.greet[0]+6,()=>{ crossTo(FRAMES.work[0]); workDir=1; state='work'; }); }
   else state='work';
 }
 let lastZoneHandled=null;
@@ -378,7 +380,7 @@ function enter(z){
 function greet(){
   clearTimers(); msgs('center'); state='greet';
   const lines=["Hey, it's you!","Hiiii!","Check out the portfolio"];
-  const total = ready ? (FRAMES.greet[1]-FRAMES.greet[0])/FRAMES.fps*1000 : 4200;
+  const total = ready ? Math.max(2400, Math.abs(FRAMES.greet[1]-FRAMES.greet[0])/FRAMES.fps*1000*1.6) : 4200;
   const say=t=>{ mC.classList.remove('on'); setTimeout(()=>{ mC.textContent=t; mC.classList.add('on'); },180); };
   say(lines[0]); msgT.push(setTimeout(()=>say(lines[1]),total*.4), setTimeout(()=>say(lines[2]),total*.78));
   const finish=()=>{ msgT.push(setTimeout(()=>{ if(zone!=='center') backToWork(); else { state='greetDone'; } }, FRAMES.hold)); };
@@ -420,8 +422,7 @@ if(hasG && !reduce){
   gsap.registerPlugin(ScrollTrigger);
   gsap.timeline({defaults:{ease:'power3.out'}})
     .from('.intro h1',{y:40,duration:1})
-    .from('.intro .role,.callme',{y:16,duration:.7,stagger:.1},'-=.6')
-    .from('.stage',{y:40,duration:1.2},'-=1');
+    .from('.intro .role,.callme',{y:16,duration:.7,stagger:.1},'-=.6');
   ScrollTrigger.create({trigger:mani,start:'top 78%',end:'bottom 50%',scrub:true,onUpdate:s=>{const n=Math.ceil(s.progress*ws.length);ws.forEach((w,i)=>w.classList.toggle('on',i<n))}});
   gsap.utils.toArray('.head').forEach(h=>gsap.from(h.children,{y:30,duration:.9,stagger:.08,scrollTrigger:{trigger:h,start:'top 85%'}}));
   document.querySelectorAll('[data-count]').forEach(el=>ScrollTrigger.create({trigger:el,start:'top 92%',once:true,onEnter:()=>countUp(el)}));
