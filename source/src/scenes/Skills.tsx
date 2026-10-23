@@ -31,7 +31,7 @@ export default function Skills() {
     const a = time * 0.28 + st.p * 5 + mx.current * 0.8;
     const tilt = -0.28 + w.my * 0.12;
     const R = (w.mobile ? 0.4 * w.vw : Math.min(0.27 * w.vw, 0.46 * w.vh)) * (0.7 + 0.3 * e);
-    const cx = w.vw * 0.5, cy = w.vh * (w.mobile ? 0.7 : 0.58);
+    const cx = w.vw * (w.mobile ? 0.5 : 0.52), cy = w.vh * (w.mobile ? 0.42 : 0.46);
     const ca = Math.cos(a), sa = Math.sin(a), ct = Math.cos(tilt), stt = Math.sin(tilt);
     pts.forEach((p, i) => {
       const x1 = p.x * ca + p.z * sa, z1 = -p.x * sa + p.z * ca;

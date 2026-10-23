@@ -1,5 +1,5 @@
-export type Shot = { from: number; to: number; box: [number, number, number, number]; cx: number };
-export type Manifest = { w: number; h: number; count: number; shots: Shot[]; tiers: Record<string, number> };
+export type Shot = { from: number; to: number };
+export type Manifest = { w: number; h: number; count: number; focus: number; shots: Shot[] };
 type Tier = 'sm' | 'md' | 'hd';
 
 const listeners = new Set<() => void>();
@@ -33,12 +33,11 @@ export function getFrame(i: number) {
 
 const pad = (n: number) => String(n).padStart(3, '0');
 
-/** Physical pixel height the person is drawn at, to pick a sharp-enough tier. */
-function neededHeight(m: Manifest) {
+/** Physical pixel width the full-bleed frame is drawn at, to pick a sharp-enough tier. */
+function neededWidth(m: Manifest) {
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  const vw = window.innerWidth, vh = window.innerHeight, bw = m.shots[0].box[2];
-  const scale = vw < 820 ? Math.min((vh * 0.74) / 900, (vw * 1.05) / bw) : (vh * 0.84) / 900;
-  return 900 * scale * dpr;
+  const S = Math.max(window.innerWidth / m.w, window.innerHeight / m.h);
+  return m.w * S * dpr;
 }
 
 type Bmp = CanvasImageSource & { width: number; height: number };
@@ -78,10 +77,10 @@ export async function loadFrames(onProgress: (p: number) => void): Promise<void>
   frames.imgs = new Array(m.count).fill(null);
   frames.level = new Array(m.count).fill(-1);
 
-  const need = neededHeight(m);
+  const need = neededWidth(m);
   // quick tier to start fast, sharp tier streamed in afterwards
-  const quick: Tier = need > 520 ? 'md' : 'sm';
-  const sharp: Tier = need > 950 ? 'hd' : need > 520 ? 'md' : 'sm';
+  const quick: Tier = need > 700 ? 'md' : 'sm';
+  const sharp: Tier = need > 900 ? 'hd' : need > 600 ? 'md' : 'sm';
 
   // hero shot first (every 2nd frame is enough to start: fractional frames fall back to neighbours)
   const s0 = m.shots[0];

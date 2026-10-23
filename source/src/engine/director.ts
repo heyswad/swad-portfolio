@@ -4,16 +4,16 @@ import Lenis from 'lenis';
 export type SceneId = 'hero' | 'about' | 'work' | 'journey' | 'skills' | 'awards' | 'contact';
 export type SceneDef = { id: SceneId; from: number; to: number; x: number; k: number; label: string; h: number };
 
-// Frame ranges come from the single continuous take:
-// 0–24 typing · 25–42 looks left · 44–64 looks right · 67–95 headset off · 96–110 wave · 108–123 points down
+// Frame ranges from the single 8 s take (192 frames):
+// 0–44 smiles at camera → looks down · 48–82 typing · 84–114 looks left · 120–152 looks right · 152–191 back to camera
 export const SCENES: SceneDef[] = [
-  { id: 'hero', label: 'Hello', from: 0, to: 24, x: 0.70, k: 0.80, h: 230 },
-  { id: 'about', label: 'About', from: 44, to: 64, x: 0.27, k: 0.84, h: 280 },
-  { id: 'work', label: 'Work', from: 25, to: 42, x: 0.77, k: 0.72, h: 460 },
-  { id: 'journey', label: 'Journey', from: 67, to: 80, x: 0.26, k: 0.84, h: 240 },
-  { id: 'skills', label: 'Toolkit', from: 80, to: 95, x: 0.50, k: 0.80, h: 280 },
-  { id: 'awards', label: 'Numbers', from: 96, to: 108, x: 0.75, k: 0.82, h: 320 },
-  { id: 'contact', label: 'Contact', from: 109, to: 123, x: 0.50, k: 0.78, h: 240 },
+  { id: 'hero', label: 'Hello', from: 0, to: 44, x: 0.5, k: 1, h: 230 },
+  { id: 'about', label: 'About', from: 120, to: 152, x: 0.5, k: 1, h: 280 },
+  { id: 'work', label: 'Work', from: 84, to: 114, x: 0.5, k: 1, h: 460 },
+  { id: 'journey', label: 'Journey', from: 48, to: 82, x: 0.5, k: 1, h: 240 },
+  { id: 'skills', label: 'Toolkit', from: 152, to: 176, x: 0.5, k: 1, h: 280 },
+  { id: 'awards', label: 'Numbers', from: 176, to: 191, x: 0.5, k: 1, h: 320 },
+  { id: 'contact', label: 'Contact', from: 44, to: 0, x: 0.5, k: 1, h: 240 },
 ];
 
 export type SceneState = { enter: number; p: number; exit: number; vis: number; top: number; h: number };

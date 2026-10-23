@@ -24,10 +24,12 @@ ul,ol{list-style:none}
 :focus-visible{outline:2px solid var(--red);outline-offset:3px}
 
 /* ---------- layers ---------- */
-.layer-back{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.layer-back{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden;mix-blend-mode:multiply}
 .stage{position:fixed;inset:0;width:100vw;height:100vh;z-index:1;pointer-events:none;will-change:contents;transform:translateZ(0)}
-.layer-front{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
-main{position:relative;z-index:3}
+.layer-front{position:fixed;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+main{position:relative;z-index:4}
+.panel{background:rgba(255,255,255,.93);border-radius:26px;padding:30px 32px;box-shadow:0 0 0 1px var(--line),0 30px 70px -36px rgba(13,13,13,.45)}
+.about-shade,.work-floor{display:none!important}
 .scene{position:relative}
 .sticky{position:sticky;top:0;height:100vh}
 .inner{position:relative;height:100%;overflow:hidden}
@@ -85,10 +87,10 @@ html.has-cursor,html.has-cursor *{cursor:none!important}
 html:not(.has-cursor) .c-dot,html:not(.has-cursor) .c-ring{display:none}
 
 /* ---------- HERO ---------- */
-.hero-name{position:absolute;right:3vw;top:10.5vh;font-size:min(18.5vw,36vh);line-height:.82;color:var(--red);display:flex;perspective:900px}
+.hero-name{position:absolute;right:2.5vw;top:12vh;font-size:min(14.5vw,30vh);line-height:.82;color:var(--red);display:flex;perspective:900px}
 .hn-l{display:inline-block;overflow:hidden;padding-top:.04em}
 .hn-l>span{display:inline-block;transform-origin:50% 100%}
-.hero-copy{position:absolute;left:5vw;top:26vh;width:min(47vw,780px)}
+.hero-copy{position:absolute;left:4vw;top:24vh;width:min(46vw,760px)}
 .hi{font-size:clamp(16px,1.25vw,21px);color:var(--mute);margin-bottom:12px}
 .hi b{color:var(--ink);font-weight:600}
 .hero-title{font-size:clamp(56px,7.6vw,156px);line-height:.88}
@@ -158,7 +160,7 @@ html:not(.has-cursor) .c-dot,html:not(.has-cursor) .c-ring{display:none}
 @keyframes heat{from{opacity:.15}to{opacity:.95}}
 
 /* ---------- JOURNEY ---------- */
-.journey-year{position:absolute;left:0;top:16vh;font-size:44vh;line-height:1;color:transparent;-webkit-text-stroke:2px var(--red);white-space:nowrap}
+.journey-year{position:absolute;left:2vw;top:12vh;font-size:44vh;opacity:.9;line-height:1;color:transparent;-webkit-text-stroke:2px var(--red);white-space:nowrap}
 .journey-year .odo-win{height:1em}
 .journey-col{position:absolute;right:5vw;top:12vh;bottom:6vh;width:min(40vw,620px);display:flex;flex-direction:column;gap:3vh}
 .sec-title{font-size:clamp(48px,5.6vw,108px);line-height:.88}
@@ -215,7 +217,7 @@ html:not(.has-cursor) .c-dot,html:not(.has-cursor) .c-ring{display:none}
 .label.on-red{color:rgba(255,255,255,.85)}.label.on-red b{color:#fff}
 .c-left{position:absolute;left:5vw;bottom:13vh}
 .email{display:flex;flex-direction:column;font-size:clamp(34px,3.7vw,74px);line-height:.95;color:#fff;position:relative;width:max-content}
-.email .dom{color:var(--ink)}
+.email .dom{color:rgba(255,255,255,.78)}
 .email::after{content:"";position:absolute;left:0;bottom:-8px;height:3px;width:100%;background:#fff;transform:scaleX(0);transform-origin:right;transition:transform .5s cubic-bezier(.7,0,.2,1)}
 .email:hover::after{transform:scaleX(1);transform-origin:left}
 .c-links{position:absolute;right:5vw;bottom:13vh;width:min(300px,30vw)}
@@ -233,9 +235,9 @@ html:not(.has-cursor) .c-dot,html:not(.has-cursor) .c-ring{display:none}
   .hud{padding:16px 6vw}
   .logo{font-size:24px}
   .prog{right:6vw;bottom:16px}
-  .panel{background:rgba(255,255,255,.9);border-radius:20px;padding:18px 18px 20px;box-shadow:0 0 0 1px var(--line)}
-  .hero-name{top:8.5vh;right:6vw;font-size:24vw}
-  .hero-copy{left:6vw;right:6vw;width:auto;top:21vh}
+  .panel{background:rgba(255,255,255,.93);border-radius:20px;padding:18px 18px 20px;box-shadow:0 0 0 1px var(--line)}
+  .hero-name{top:auto;bottom:calc(3vh + 330px);right:5vw;font-size:21vw}
+  .hero-copy{left:5vw;right:5vw;width:auto;top:auto;bottom:3vh}
   .hero-title{font-size:clamp(40px,12vw,64px)}
   .hero-desc{font-size:14.5px;margin-top:12px}
   .btns{margin-top:18px;gap:8px}

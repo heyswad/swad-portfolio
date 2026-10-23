@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { frames, getFrame, shotOf } from '../engine/frames';
+import { frames, getFrame } from '../engine/frames';
 import { SCENES, subscribe, type World } from '../engine/director';
 
 export default function Stage() {
@@ -12,22 +12,43 @@ export default function Stage() {
       const W = Math.round(w.vw * dpr), H = Math.round(w.vh * dpr);
       if (cv.width !== W || cv.height !== H) { cv.width = W; cv.height = H; key = ''; }
     };
-    const drawShot = (w: World, f: number, x: number, k: number, dx: number) => {
+    const fade = (x0: number, y0: number, x1: number, y1: number) => {
+      const g = ctx.createLinearGradient(x0, y0, x1, y1);
+      g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(Math.min(x0, x1), Math.min(y0, y1), Math.abs(x1 - x0) || w0.vw, Math.abs(y1 - y0) || w0.vh);
+    };
+    let w0: World;
+    const drawShot = (w: World, f: number, _x: number, _k: number, dx: number) => {
       const m = frames.manifest; if (!m) return;
-      const i0 = Math.round(f);
-      const s = m.shots[shotOf(i0)];
-      const [bx, by, bw, bh] = s.box;
-      let scale: number, X = x;
-      if (w.mobile) { scale = Math.min((w.vh * 0.74) / 900, (w.vw * 1.05) / bw); X = 0.5; }
-      else scale = (w.vh * k) / 900;
-      const offY = w.vh - 900 * scale;
-      const offX = X * w.vw - s.cx * 1600 * scale + px + dx;
-      const put = (img: ReturnType<typeof getFrame>) => { if (img) ctx.drawImage(img, offX + bx * scale, offY + by * scale + py, bw * scale, bh * scale); };
-      put(getFrame(i0));
+      const img = getFrame(Math.round(f)); if (!img) return;
+      const { vw, vh } = w; w0 = w;
+      let S: number, offX: number, offY: number;
+      if (w.mobile) {
+        // portrait: frame fills the upper ~64% of the screen, centred on the face
+        S = (vh * 0.64) / m.h;
+        const dw = m.w * S;
+        offX = Math.min(0, Math.max(vw - dw, vw / 2 - m.focus * dw));
+        offY = 52;
+      } else {
+        // landscape: fit the full height so the head is never cropped
+        S = (vh * 1.02) / m.h;
+        const dw = m.w * S;
+        offX = dw > vw ? Math.min(0, Math.max(vw - dw, (vw - dw) / 2 + px + dx)) : (vw - dw) / 2 + px + dx;
+        offY = vh - m.h * S + py * 0.5;
+      }
+      const dw = m.w * S, dh = m.h * S;
+      ctx.drawImage(img, offX, offY, dw, dh);
+      // soften the frame edges into the white page
+      const e = Math.min(110, dw * 0.08);
+      if (offX > -2) fade(offX - 1, 0, offX + e, 0);
+      if (offX + dw < vw + 2) fade(offX + dw + 1, 0, offX + dw - e, 0);
+      if (w.mobile) { fade(0, offY + dh + 1, 0, offY + dh - e * 1.6); ctx.fillStyle = '#fff'; ctx.fillRect(0, offY + dh, vw, vh); }
+      else if (offY > -2) fade(0, offY - 1, 0, offY + e * 0.6);
     };
     const unsub = subscribe(w => {
       fit(w);
-      const tx = w.mobile ? 0 : w.mx * 14, ty = w.mobile ? 0 : w.my * 6;
+      const tx = w.mobile ? 0 : -w.mx * 12, ty = w.mobile ? 0 : -w.my * 6;
       px += (tx - px) * 0.06; py += (ty - py) * 0.06;
       if (Math.abs(tx - px) < 0.05) px = tx; if (Math.abs(ty - py) < 0.05) py = ty;
       const F = w.f;
@@ -42,12 +63,12 @@ export default function Stage() {
         // outgoing: right of the blade
         ctx.save(); ctx.beginPath();
         ctx.moveTo(e + skew, 0); ctx.lineTo(vw + 20, 0); ctx.lineTo(vw + 20, vh); ctx.lineTo(e - skew, vh); ctx.closePath(); ctx.clip();
-        ctx.globalAlpha = 1 - 0.35 * t; drawShot(w, F.prev.frame, F.prev.x, F.prev.k, 60 * t);
+        ctx.globalAlpha = 1 - 0.35 * t; drawShot(w, F.prev.frame, F.prev.x, F.prev.k, 30 * t);
         ctx.restore();
         // incoming: left of the blade
         ctx.save(); ctx.beginPath();
         ctx.moveTo(-20, 0); ctx.lineTo(e + skew, 0); ctx.lineTo(e - skew, vh); ctx.lineTo(-20, vh); ctx.closePath(); ctx.clip();
-        drawShot(w, F.frame, F.cur.x, F.cur.k, -60 * (1 - t));
+        drawShot(w, F.frame, F.cur.x, F.cur.k, -30 * (1 - t));
         ctx.restore();
         // blade + trail
         const white = SCENES[F.active].id === 'contact';
