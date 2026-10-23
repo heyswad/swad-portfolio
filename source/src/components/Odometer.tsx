@@ -11,11 +11,17 @@ const Odometer = forwardRef<OdoHandle, { digits: number; className?: string }>((
       v = Math.max(0, v);
       for (let d = 0; d < digits; d++) {
         const place = Math.pow(10, digits - 1 - d);
-        const raw = v / place;
-        const whole = Math.floor(raw) % 10;
-        const frac = raw - Math.floor(raw);
-        // lower places roll continuously; snap the motion of each column near the carry
-        const pos = whole + smooth(0.55, 1, frac);
+        const whole = Math.floor(v / place) % 10;
+        let pos: number;
+        if (place === 1) {
+          // lowest digit rolls with the value and snaps near the next number
+          pos = whole + smooth(0.55, 1, v - Math.floor(v));
+        } else {
+          // higher digits only move while the digit below rolls from 9 to 0 (mechanical carry)
+          const below = v / (place / 10);
+          const carry = Math.floor(below) % 10 === 9 ? smooth(0.55, 1, below - Math.floor(below)) : 0;
+          pos = whole + carry;
+        }
         const el = cols.current[d];
         if (el) {
           el.style.transform = `translateY(${(-pos * 100 / 11).toFixed(3)}%)`;
