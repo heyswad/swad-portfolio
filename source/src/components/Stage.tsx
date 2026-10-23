@@ -52,7 +52,7 @@ export default function Stage() {
       px += (tx - px) * 0.06; py += (ty - py) * 0.06;
       if (Math.abs(tx - px) < 0.05) px = tx; if (Math.abs(ty - py) < 0.05) py = ty;
       const F = w.f;
-      const k2 = `${frames.level.reduce((a, b) => a + b, 0)}|${Math.round(F.frame)}|${F.t.toFixed(4)}|${F.prev?.frame ?? -1}|${F.active}|${w.vw}x${w.vh}|${frames.loaded}|${px.toFixed(2)}|${py.toFixed(2)}`;
+      const k2 = `${frames.level[Math.round(F.frame)] ?? 0}|${F.prev ? frames.level[Math.round(F.prev.frame)] ?? 0 : 0}|${Math.round(F.frame)}|${F.t.toFixed(4)}|${F.prev?.frame ?? -1}|${F.active}|${w.vw}x${w.vh}|${frames.loaded}|${px.toFixed(2)}|${py.toFixed(2)}`;
       if (k2 === key) return; key = k2;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';

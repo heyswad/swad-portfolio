@@ -50,10 +50,18 @@ async function loadOne(src: string): Promise<Bmp | null> {
   } catch { return null; }
 }
 
-async function runQueue(list: number[], tier: Tier, rank: number, conc: number, onEach?: () => void) {
+const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+/** Wait until the page is not being scrolled, so background loading never steals frames from motion. */
+async function whenIdle() {
+  const L = (window as unknown as { __lenis?: { isScrolling: boolean | string } }).__lenis;
+  let quiet = 0;
+  while (quiet < 2) { if (L && L.isScrolling) quiet = 0; else quiet++; await sleep(90); }
+}
+async function runQueue(list: number[], tier: Tier, rank: number, conc: number, onEach?: () => void, idle = false) {
   let idx = 0;
   const worker = async () => {
     while (idx < list.length) {
+      if (idle) await whenIdle();
       const i = list[idx++];
       if (frames.level[i] >= rank) continue;
       const img = await loadOne(`./frames/${tier}/f${pad(i)}.webp`);
@@ -95,12 +103,12 @@ export async function loadFrames(onProgress: (p: number) => void): Promise<void>
   m.shots.forEach(s => { push(s.from); push(s.to); });
   [8, 4, 2, 1].forEach(st => { for (let i = 0; i < m.count; i += st) push(i); });
   (async () => {
-    await runQueue(order, quick, 1, 6);
+    await runQueue(order, quick, 1, 4, undefined, true);
     if (sharp !== quick) {
       const all: number[] = [];
       for (let i = s0.from; i <= s0.to; i++) all.push(i);
       for (let i = 0; i < m.count; i++) if (i > s0.to) all.push(i);
-      await runQueue(all, sharp, 2, 4);
+      await runQueue(all, sharp, 2, 2, undefined, true);
     }
   })();
 }
