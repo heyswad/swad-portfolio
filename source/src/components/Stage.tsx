@@ -5,7 +5,7 @@ import { SCENES, subscribe, type World } from '../engine/director';
 export default function Stage() {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
-    const cv = ref.current!; const ctx = cv.getContext('2d')!;
+    const cv = ref.current!; const ctx = cv.getContext('2d', { alpha: true, desynchronized: true })!;
     let key = ''; let px = 0, py = 0; let dpr = 1;
     const fit = (w: World) => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -14,7 +14,7 @@ export default function Stage() {
     };
     const drawShot = (w: World, f: number, x: number, k: number, dx: number) => {
       const m = frames.manifest; if (!m) return;
-      const i0 = Math.floor(f), frac = f - i0;
+      const i0 = Math.round(f);
       const s = m.shots[shotOf(i0)];
       const [bx, by, bw, bh] = s.box;
       let scale: number, X = x;
@@ -22,21 +22,19 @@ export default function Stage() {
       else scale = (w.vh * k) / 900;
       const offY = w.vh - 900 * scale;
       const offX = X * w.vw - s.cx * 1600 * scale + px + dx;
-      const put = (img: HTMLImageElement | null) => { if (img) ctx.drawImage(img, offX + bx * scale, offY + by * scale + py, bw * scale, bh * scale); };
+      const put = (img: ReturnType<typeof getFrame>) => { if (img) ctx.drawImage(img, offX + bx * scale, offY + by * scale + py, bw * scale, bh * scale); };
       put(getFrame(i0));
-      if (frac > 0.001 && i0 + 1 <= s.to) {
-        const nx = frames.imgs[i0 + 1];
-        if (nx) { const ga = ctx.globalAlpha; ctx.globalAlpha = ga * frac; put(nx); ctx.globalAlpha = ga; }
-      }
     };
     const unsub = subscribe(w => {
       fit(w);
       const tx = w.mobile ? 0 : w.mx * 14, ty = w.mobile ? 0 : w.my * 6;
       px += (tx - px) * 0.06; py += (ty - py) * 0.06;
+      if (Math.abs(tx - px) < 0.05) px = tx; if (Math.abs(ty - py) < 0.05) py = ty;
       const F = w.f;
-      const k2 = `${F.frame.toFixed(3)}|${F.t.toFixed(4)}|${F.prev?.frame ?? -1}|${F.active}|${w.vw}x${w.vh}|${frames.loaded}|${px.toFixed(2)}|${py.toFixed(2)}`;
+      const k2 = `${frames.level.reduce((a, b) => a + b, 0)}|${Math.round(F.frame)}|${F.t.toFixed(4)}|${F.prev?.frame ?? -1}|${F.active}|${w.vw}x${w.vh}|${frames.loaded}|${px.toFixed(2)}|${py.toFixed(2)}`;
       if (k2 === key) return; key = k2;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
       ctx.clearRect(0, 0, w.vw, w.vh);
       const { vw, vh } = w;
       if (F.prev && F.t < 1) {
@@ -65,7 +63,7 @@ export default function Stage() {
       } else {
         drawShot(w, F.frame, F.cur.x, F.cur.k, 0);
       }
-    });
+    }, { always: true });
     return unsub;
   }, []);
   return <canvas ref={ref} className="stage" aria-label="Swad at his desk, reacting as you scroll" />;

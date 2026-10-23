@@ -28,7 +28,7 @@ export default function Awards() {
       cylWrap.current.style.visibility = o < 0.002 ? 'hidden' : 'visible';
     }
     if (cyl.current) cyl.current.style.transform = `translateZ(-360px) rotateX(-14deg) rotateY(${(-st.p * (360 - 360 / N)).toFixed(2)}deg)`;
-  });
+  }, { scene: 'awards' });
 
   return (
     <section className="scene" id="awards" ref={sec} style={{ height: '320vh' }}>

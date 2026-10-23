@@ -33,7 +33,9 @@ export const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 export const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 type Sub = (w: World) => void;
-const subs = new Set<Sub>();
+type Entry = { fn: Sub; scene?: SceneId; always?: boolean; wasNear: boolean };
+const subs = new Set<Entry>();
+let lastY = -1, dirty = true;
 const sections = new Map<SceneId, HTMLElement>();
 const rects = new Map<SceneId, { top: number; h: number }>();
 let lenis: Lenis | null = null;
@@ -45,13 +47,21 @@ export const world: World = {
   f: { active: 0, frame: 0, t: 1, prev: null, cur: { x: SCENES[0].x, k: 1 } }, mx: 0, my: 0,
 };
 
-export function subscribe(fn: Sub) { subs.add(fn); fn(world); return () => { subs.delete(fn); }; }
+/**
+ * scene: only called while that scene is on (or entering) screen, plus once after it leaves.
+ * always: called every frame (continuous animation) instead of only when the scroll moved.
+ */
+export function subscribe(fn: Sub, opts: { scene?: SceneId; always?: boolean } = {}) {
+  const e: Entry = { fn, ...opts, wasNear: true }; subs.add(e); fn(world);
+  return () => { subs.delete(e); };
+}
 
 const ro = new ResizeObserver(() => measure());
 export function registerSection(id: SceneId, el: HTMLElement | null) {
   if (!el) return; sections.set(id, el); ro.observe(el); measure();
 }
 function measure() {
+  dirty = true;
   world.vw = window.innerWidth; world.vh = window.innerHeight; world.mobile = world.vw < 820;
   sections.forEach((el, id) => {
     const r = el.getBoundingClientRect();
@@ -91,13 +101,23 @@ function tick() {
     if (t < 1) prev = { frame: ps.to, x: ps.x, k: ps.k };
   }
   world.f = { active, frame, t, prev, cur: { x: s.x, k: s.k } };
-  subs.forEach(fn => fn(world));
+  const moved = dirty || Math.abs(y - lastY) > 0.05;
+  lastY = y; dirty = false;
+  subs.forEach(e => {
+    if (e.scene) {
+      const sc = world.scenes[e.scene];
+      const near = sc.enter > 0 && sc.exit < 1;
+      if (!near) { if (e.wasNear) { e.wasNear = false; e.fn(world); } return; }
+      e.wasNear = true;
+    }
+    if (moved || e.always) e.fn(world);
+  });
 }
 
 export function initDirector() {
   history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
-  lenis = new Lenis({ lerp: 0.075, smoothWheel: true, wheelMultiplier: 0.9, touchMultiplier: 1.4 });
+  lenis = new Lenis({ lerp: 0.11, smoothWheel: true, wheelMultiplier: 1, touchMultiplier: 1.4 });
   lenis.stop();
   (window as unknown as { __lenis: Lenis }).__lenis = lenis;
   gsap.ticker.add(time => { lenis!.raf(time * 1000); tick(); });

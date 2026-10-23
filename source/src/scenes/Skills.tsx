@@ -44,7 +44,7 @@ export default function Skills() {
       if (b) { b.style.transform = tr; b.style.opacity = inFront ? '0' : (0.35 + 0.5 * (1 + z2)).toFixed(3); }
       if (f) { f.style.transform = tr; f.style.opacity = inFront ? (0.75 + 0.25 * z2).toFixed(3) : '0'; }
     });
-  });
+  }, { scene: 'skills', always: true });
 
   return (
     <section className="scene" id="skills" ref={sec} style={{ height: '280vh' }}>

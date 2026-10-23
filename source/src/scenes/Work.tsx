@@ -62,7 +62,7 @@ export default function Work() {
     const idx = Math.min(n, Math.round(q) + 1);
     if (count.current) count.current.textContent = `${String(idx).padStart(2, '0')} / ${String(n).padStart(2, '0')}`;
     if (bar.current) bar.current.style.transform = `scaleX(${(q / (n - 1)).toFixed(3)})`;
-  });
+  }, { scene: 'work' });
 
   return (
     <section className="scene" id="work" ref={sec} style={{ height: '460vh' }}>

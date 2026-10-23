@@ -32,7 +32,7 @@ export default function Hero() {
       copy.current.style.visibility = o < 0.002 ? 'hidden' : 'visible';
     }
     if (hl.current) hl.current.style.setProperty('--hl', `${Math.min(100, 12 + st.p * 140).toFixed(1)}%`);
-  });
+  }, { scene: 'hero' });
 
   return (
     <section className="scene" id="hero" ref={sec} style={{ height: '230vh' }}>

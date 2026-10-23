@@ -25,7 +25,7 @@ export default function Contact() {
     const e = easeOutCubic(clamp((st.enter - 0.55) * 2.4));
     if (talk.current) { talk.current.style.opacity = e.toFixed(3); talk.current.style.transform = `translateX(-50%) translateY(${((1 - e) * 8).toFixed(2)}vh)`; talk.current.style.visibility = e < 0.002 ? 'hidden' : 'visible'; }
     if (body.current) { body.current.style.opacity = e.toFixed(3); body.current.style.transform = `translateY(${((1 - e) * 40).toFixed(1)}px)`; body.current.style.visibility = e < 0.002 ? 'hidden' : 'visible'; }
-  });
+  }, { scene: 'contact' });
 
   return (
     <section className="scene" id="contact" ref={sec} style={{ height: '240vh' }}>

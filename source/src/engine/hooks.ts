@@ -2,9 +2,9 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 import { subscribe, onIntro, registerSection, type SceneId, type World } from './director';
 
 /** Subscribe to the scroll world; callback mutates DOM through refs only. */
-export function useWorld(cb: (w: World) => void) {
+export function useWorld(cb: (w: World) => void, opts: { scene?: SceneId; always?: boolean } = {}) {
   const ref = useRef(cb); ref.current = cb;
-  useEffect(() => subscribe(w => ref.current(w)), []);
+  useEffect(() => subscribe(w => ref.current(w), opts), []);
 }
 export function useIntro(cb: () => void) {
   const ref = useRef(cb); ref.current = cb;

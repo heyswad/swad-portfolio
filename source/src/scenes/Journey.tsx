@@ -35,7 +35,7 @@ export default function Journey() {
       el.style.transform = `perspective(900px) rotateY(${(-55 * (1 - r)).toFixed(2)}deg)`;
       el.classList.toggle('on', r > 0.6);
     });
-  });
+  }, { scene: 'journey' });
 
   return (
     <section className="scene" id="journey" ref={sec} style={{ height: '240vh' }}>

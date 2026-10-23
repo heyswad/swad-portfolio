@@ -31,12 +31,12 @@ export default function About() {
       const r = easeOutCubic(clamp(prog - i));
       el.style.opacity = ((0.1 + 0.9 * r) * fade).toFixed(3);
       el.style.transform = `translateY(${(0.25 * (1 - r)).toFixed(3)}em)`;
-      el.style.filter = r > 0.99 ? 'none' : `blur(${(4 * (1 - r)).toFixed(2)}px)`;
+      el.style.filter = w.mobile || r > 0.99 || r < 0.01 ? 'none' : `blur(${(4 * (1 - r)).toFixed(2)}px)`;
     });
     reveal(cards.current, st, { delay: 0.35, dist: 60 });
     const c = easeOutCubic(clamp((st.p - 0.25) / 0.55));
     stats.forEach((s, i) => odos.current[i]?.set(s.value * c));
-  });
+  }, { scene: 'about' });
 
   return (
     <section className="scene" id="about" ref={sec} style={{ height: '280vh' }}>
