@@ -4,16 +4,402 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Swad · D2C Founder & AI Builder</title>
-<meta name="description" content="Swad — 8+ years building D2C brands and AI products. ₹26 Cr+ in sales, 40+ AI tools shipped. Looking for a startup to join full-time.">
+<meta name="description" content="Swad — 8+ years building D2C brands and AI products. ₹26 Cr+ in sales, a 40-person team, 40+ AI tools. Open to a full-time startup role.">
 <meta property="og:title" content="Swad · D2C Founder & AI Builder">
-<meta property="og:description" content="₹26 Cr+ in sales, 40-person team, 40+ AI tools. Looking for a startup to go all in on.">
-<meta name="theme-color" content="#ff1f1f">
-  <script type="module" crossorigin src="./assets/index-CrrFG75W.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DjwtjBIS.css">
+<meta property="og:description" content="₹26 Cr+ in sales, 40-person team, 40+ AI tools. Open to a full-time startup role.">
+<meta property="og:image" content="https://swad.ecomprofix.com/assets/poster.jpg">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" as="image" href="assets/poster.jpg">
+<style>
+:root{
+  --bg:#f4f5f7; --card:#ffffff; --ink:#111214; --sub:#5b5f6a; --faint:#8d919b; --line:#e6e8ec;
+  --red:#ff1f1f; --red-soft:#fff0f0; --green:#16a34a; --green-soft:#eafaf0;
+  --sans:"Inter Tight", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --r:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img,video{display:block;max-width:100%}
+::selection{background:var(--red);color:#fff}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+.mono{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+.lbl{color:var(--faint)}
+.red{color:var(--red)}
+
+/* nav */
+header{position:sticky;top:0;z-index:20;background:rgba(244,245,247,.86);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.03em}
+.logo sup{color:var(--red);font-size:.5em;margin-left:1px}
+.links{display:flex;gap:4px}
+.links a{padding:8px 12px;border-radius:10px;font-size:14.5px;font-weight:500;color:var(--sub);transition:background .2s,color .2s}
+.links a:hover{background:#fff;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 20px;border-radius:12px;font-weight:600;font-size:15px;transition:transform .2s,background .2s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 8px 20px -10px rgba(255,31,31,.7)}
+.btn-red:hover{background:#e81515}
+.btn-ghost{background:#fff;border:1px solid var(--line)}
+.btn-ghost:hover{border-color:#cfd2d8}
+.btn-sm{height:38px;padding:0 14px;font-size:14px;border-radius:10px}
+@media (max-width:760px){.links{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.12fr .88fr;gap:18px;padding:22px 0 18px}
+.vid{position:relative;overflow:hidden;aspect-ratio:1280/818;background:#e9eaee url(assets/poster.jpg) center/cover;border-radius:var(--r)}
+.vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .28s ease}
+.vid video.on{opacity:1}
+.vid-top{position:absolute;left:14px;top:14px;right:14px;display:flex;justify-content:space-between;gap:8px;z-index:2}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.92);font-size:13px;font-weight:600;box-shadow:0 4px 14px -6px rgba(0,0,0,.25)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(22,163,74,.5);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 8px rgba(22,163,74,0)}100%{box-shadow:0 0 0 0 rgba(22,163,74,0)}}
+.bubble{position:absolute;z-index:2;left:50%;bottom:16px;transform:translate(-50%,8px);padding:9px 14px;border-radius:12px;background:#111214;color:#fff;font-size:13.5px;font-weight:500;opacity:0;transition:opacity .3s,transform .3s;white-space:nowrap}
+.bubble.on{opacity:1;transform:translate(-50%,0)}
+.hint{position:absolute;z-index:2;right:14px;bottom:14px;padding:6px 10px;border-radius:8px;background:rgba(17,18,20,.72);color:#fff}
+@media (pointer:coarse),(max-width:899px){.hint{display:none}}
+
+.intro{padding:30px;display:flex;flex-direction:column;gap:18px}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--sub)}
+.eyebrow b{color:var(--red);font-weight:500}
+h1{font-size:clamp(34px,4.2vw,56px);line-height:1.02;letter-spacing:-.035em;font-weight:800}
+h1 em{font-style:normal;color:var(--red)}
+.intro p{color:var(--sub);font-size:17px;max-width:38ch}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
+.who{display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid var(--line)}
+.who img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:42% 18%}
+.who b{display:block;font-size:15px}
+.who span{font-size:13.5px;color:var(--faint)}
+@media (max-width:899px){.hero{grid-template-columns:1fr}.intro{padding:24px}}
+
+/* kpis */
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.kpi{padding:18px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.kpi .v{font-size:clamp(26px,2.6vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kpi .v small{font-size:.55em;font-weight:700;margin-left:2px;color:var(--sub)}
+.kpi .k{font-size:13.5px;color:var(--sub)}
+.tag{align-self:flex-start;margin-top:4px;padding:3px 8px;border-radius:6px;background:var(--red-soft);color:var(--red);font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase}
+.tag.g{background:var(--green-soft);color:var(--green)}
+@media (max-width:1000px){.kpis{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.kpis{grid-template-columns:repeat(2,1fr)}.kpi{padding:16px}}
+
+/* sections */
+section{padding:56px 0 8px}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.sh h2{font-size:clamp(26px,3vw,38px);letter-spacing:-.03em;line-height:1.1;font-weight:800}
+.sh p{color:var(--sub);max-width:46ch}
+
+/* dashboard */
+.dash{display:grid;grid-template-columns:1.25fr .75fr;gap:12px}
+.panel{padding:24px}
+.ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;gap:12px}
+.ph h3{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.bars{display:flex;flex-direction:column;gap:18px}
+.bar-row{display:grid;grid-template-columns:150px 1fr 64px;align-items:center;gap:14px}
+.bar-row .n{font-weight:600;font-size:14.5px;line-height:1.2}
+.bar-row .n span{display:block;font-weight:400;color:var(--faint);font-size:12.5px}
+.track{height:12px;border-radius:99px;background:#f0f1f4;overflow:hidden}
+.fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#ff6b6b,var(--red));transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.in .fill{width:var(--w)}
+.bar-row .amt{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.note{margin-top:20px;padding-top:16px;border-top:1px dashed var(--line);color:var(--faint);font-size:13.5px}
+.focus{display:flex;flex-direction:column;gap:14px}
+.fitem{display:flex;gap:14px;align-items:flex-start}
+.ficon{flex:none;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--red-soft);color:var(--red)}
+.ficon svg{width:18px;height:18px}
+.fitem b{display:block;font-size:15px}
+.fitem span{font-size:14px;color:var(--sub)}
+@media (max-width:899px){.dash{grid-template-columns:1fr}.bar-row{grid-template-columns:110px 1fr 56px;gap:10px}.panel{padding:20px}}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.proj{padding:22px;display:flex;flex-direction:column;gap:12px;transition:transform .25s,box-shadow .25s,border-color .25s;min-width:0}
+.proj:hover{transform:translateY(-3px);box-shadow:0 18px 40px -26px rgba(17,18,20,.35);border-color:#d9dce2}
+.proj .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.proj .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:17px;color:#fff;background:var(--ink)}
+.status{padding:4px 9px;border-radius:99px;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;background:#f0f1f4;color:var(--sub)}
+.status.live{background:var(--green-soft);color:var(--green)}
+.proj h3{font-size:20px;letter-spacing:-.02em;line-height:1.2}
+.proj p{color:var(--sub);font-size:14.5px}
+.metric{display:flex;align-items:baseline;gap:8px;padding:12px 14px;border-radius:12px;background:var(--bg)}
+.metric b{font-size:22px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.metric span{font-size:13px;color:var(--sub)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.chips span{padding:4px 9px;border-radius:7px;border:1px solid var(--line);font-size:12.5px;color:var(--sub)}
+.go{font-weight:600;font-size:14px;color:var(--red)}
+@media (max-width:1000px){.work{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.work{grid-template-columns:1fr}}
+
+/* journey */
+.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;position:relative}
+.step{padding:20px;position:relative;min-width:0}
+.step .y{color:var(--red)}
+.step h3{font-size:16.5px;margin:8px 0 4px;letter-spacing:-.01em;line-height:1.25}
+.step p{font-size:13.5px;color:var(--sub)}
+.step .amt{margin-top:10px;font-weight:800;font-size:20px;letter-spacing:-.02em}
+.step.now{border-color:var(--red);box-shadow:0 0 0 3px var(--red-soft)}
+@media (max-width:1000px){.tl{grid-template-columns:1fr}.step{display:grid;grid-template-columns:96px 1fr;gap:4px 14px;align-items:start}.step .y{grid-row:span 3;padding-top:3px}.step h3{margin:0}.step .amt{margin-top:2px}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.sk{padding:20px}
+.sk h3{font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.sk h3 i{width:8px;height:8px;border-radius:2px;background:var(--red);display:inline-block}
+.sk ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.sk li{padding:5px 10px;border-radius:8px;background:var(--bg);font-size:13.5px}
+@media (max-width:1000px){.skills{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.skills{grid-template-columns:1fr}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1.2fr .8fr;gap:12px;padding-bottom:20px}
+.cbig{padding:34px;background:var(--ink);color:#fff;border-color:var(--ink);position:relative;overflow:hidden}
+.cbig h2{font-size:clamp(28px,3.4vw,46px);line-height:1.05;letter-spacing:-.035em;font-weight:800;max-width:16ch}
+.cbig h2 em{font-style:normal;color:var(--red)}
+.cbig p{color:#b9bcc4;margin-top:12px;max-width:44ch}
+.mail{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:8px 8px 8px 18px;border-radius:14px;background:#1d1f23;border:1px solid #2c2f35}
+.mail span{font-size:clamp(15px,1.8vw,19px);font-weight:600;flex:1;min-width:0;overflow-wrap:anywhere;user-select:all}
+.cbig .btn-ghost{background:#2a2d33;border-color:#3a3d44;color:#fff}
+.clist{padding:10px 24px}
+.clist a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);font-weight:600}
+.clist a:last-child{border-bottom:0}
+.clist a span{display:block;font-weight:400;font-size:13px;color:var(--faint)}
+.clist .arr{transition:transform .25s;color:var(--red)}
+.clist a:hover .arr{transform:translate(3px,-3px)}
+@media (max-width:899px){.contact{grid-template-columns:1fr}.cbig{padding:26px}}
+footer{padding:24px 0 34px;color:var(--faint);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* reveal (content is always visible; it only lifts in) */
+.rv{transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s}
+.js .rv:not(.in){transform:translateY(18px);opacity:.001}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,80px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:12px;font-weight:600;font-size:14px;transition:transform .3s;z-index:50}
+.toast.on{transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
-<div id="layer-back" class="layer-back"></div>
-<div id="layer-front" class="layer-front"></div>
-<div id="root"></div>
+<header id="hdr"><div class="wrap nav">
+  <a class="logo" href="#top">SWAD<sup>®</sup></a>
+  <nav class="links" aria-label="Sections"><a href="#numbers">Numbers</a><a href="#work">Work</a><a href="#journey">Journey</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-red btn-sm" href="#contact">Hire me</a>
+</div></header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="vid card" id="vid">
+      <video id="vA" muted playsinline preload="auto" poster="assets/poster.jpg" class="on" aria-label="Swad at his desk"></video>
+      <video id="vB" muted playsinline preload="auto" aria-hidden="true"></video>
+      <div class="vid-top"><span class="pill"><i class="dot"></i>Open to full-time roles</span><span class="pill">Mumbai, India</span></div>
+      <div class="bubble" id="bubble">Anyone on the left?</div>
+      <div class="hint mono">Move your cursor ← →</div>
+    </div>
+    <div class="intro card rv">
+      <div class="eyebrow mono"><b>●</b> D2C founder · AI builder · 8+ years</div>
+      <h1>I build brands and <em>AI products</em> that sell.</h1>
+      <p>I scaled an Ayurvedic D2C brand to ₹20 Cr in sales with a 40-person team. Now I ship AI tools, and I want a startup to go all in on.</p>
+      <div class="cta">
+        <a class="btn btn-red" href="mailto:marketingswad@gmail.com?subject=Let's%20talk%20about%20a%20role">Email me</a>
+        <a class="btn btn-ghost" href="resume.pdf" download>Download résumé</a>
+      </div>
+      <div class="who"><img src="assets/poster.jpg" alt="" width="44" height="44"><div><b>Swad</b><span>Founder, Saviour Cosmetic & Ecom Profix</span></div></div>
+    </div>
+  </div>
+
+  <div class="wrap" id="numbers">
+    <div class="kpis">
+      <div class="kpi card rv"><span class="mono lbl">Total sales</span><div class="v">₹<span data-n="26">26</span><small>Cr+</small></div><span class="k">Across 3 companies</span></div>
+      <div class="kpi card rv"><span class="mono lbl">Ad spend</span><div class="v">₹<span data-n="4">4</span><small>Cr+</small></div><span class="k">Managed on Meta</span></div>
+      <div class="kpi card rv"><span class="mono lbl">Avg ROAS</span><div class="v"><span data-n="9">9</span><small>x</small></div><span class="k">8–9x on ad campaigns</span></div>
+      <div class="kpi card rv"><span class="mono lbl">Team built</span><div class="v"><span data-n="40">40</span></div><span class="k">Hired & led myself</span></div>
+      <div class="kpi card rv"><span class="mono lbl">AI tools</span><div class="v"><span data-n="40">40</span><small>+</small></div><span class="k">Shipped and earning</span></div>
+      <div class="kpi card rv"><span class="mono lbl">Users / month</span><div class="v"><span data-n="10">10</span><small>K+</small></div><span class="k">On one AI tool</span><span class="tag g">Month one</span></div>
+    </div>
+  </div>
+
+  <section class="wrap">
+    <div class="dash">
+      <div class="panel card rv" id="rev">
+        <div class="ph"><h3>Revenue by venture</h3><span class="mono lbl">Lifetime sales</span></div>
+        <div class="bars">
+          <div class="bar-row"><div class="n">Saviour Cosmetic<span>Ayurvedic D2C</span></div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="amt">₹20 Cr</div></div>
+          <div class="bar-row"><div class="n">Healthy Cube Herbal<span>Supplements</span></div><div class="track"><div class="fill" style="--w:25%"></div></div><div class="amt">₹5 Cr</div></div>
+          <div class="bar-row"><div class="n">Digital products<span>E-books & courses</span></div><div class="track"><div class="fill" style="--w:5%"></div></div><div class="amt">₹1 Cr</div></div>
+        </div>
+        <div class="note">100+ Ayurvedic products on my own formulations · team of 40 · COD, prepaid and RTO run in-house</div>
+      </div>
+      <div class="panel card rv">
+        <div class="ph"><h3>Right now</h3><span class="tag g">Active</span></div>
+        <div class="focus">
+          <div class="fitem"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/></svg></span><div><b>40+ AI tools</b><span>Earning every month; one hit 10K+ users in month one</span></div></div>
+          <div class="fitem"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7h13l5 5v5h-3"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></span><div><b>Own OMS</b><span>Order management for D2C, built in-house</span></div></div>
+          <div class="fitem"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span><div><b>Ecom Profix</b><span>In-house agency building sites and software for clients</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="work">
+    <div class="sh"><h2>Selected work</h2><p>Real businesses I built and run, not case studies.</p></div>
+    <div class="work">
+      <article class="proj card rv"><div class="top"><span class="ic" style="background:var(--red)">S</span><span class="status live">Live</span></div><h3>Saviour Cosmetic</h3><p>Ayurvedic D2C brand with 100+ products on my own formulations.</p><div class="metric"><b>₹20 Cr</b><span>sales · ₹3 Cr+ ad spend</span></div><div class="chips"><span>Shopify</span><span>Meta Ads</span><span>WhatsApp sales</span><span>Team of 40</span></div><a class="go" href="https://saviourcosmetic.com" target="_blank" rel="noopener">Visit store ↗</a></article>
+      <article class="proj card rv"><div class="top"><span class="ic">H</span><span class="status">Pvt Ltd</span></div><h3>Healthy Cube Herbal</h3><p>Weight-loss and dietary supplements, built and scaled with paid ads.</p><div class="metric"><b>₹5 Cr</b><span>sales · ₹1 Cr ad spend</span></div><div class="chips"><span>Performance ads</span><span>COD ops</span><span>Fulfilment</span></div></article>
+      <article class="proj card rv"><div class="top"><span class="ic" style="background:#2563eb">AI</span><span class="status live">Live</span></div><h3>40+ AI tools</h3><p>A suite of AI products earning monthly, including Kuchupuchu, an AI pet care app.</p><div class="metric"><b>10K+</b><span>users on one tool in month one</span></div><div class="chips"><span>Claude API</span><span>Supabase</span><span>Lovable</span><span>Razorpay</span></div><a class="go" href="https://kuchupuchu.ecomprofix.com" target="_blank" rel="noopener">Try Kuchupuchu ↗</a></article>
+      <article class="proj card rv"><div class="top"><span class="ic" style="background:#0f766e">E</span><span class="status live">Live</span></div><h3>Ecom Profix & OMS</h3><p>My in-house agency building websites and software for clients, plus my own order management system.</p><div class="metric"><b>Agency</b><span>+ in-house software</span></div><div class="chips"><span>Websites</span><span>OMS</span><span>Courier APIs</span><span>Automation</span></div><a class="go" href="https://ecomprofix.com" target="_blank" rel="noopener">Visit Ecom Profix ↗</a></article>
+      <article class="proj card rv"><div class="top"><span class="ic" style="background:#7c3aed">D</span><span class="status">Past</span></div><h3>Digital products platform</h3><p>My first business after lockdown: e-books and marketing courses on my own platform.</p><div class="metric"><b>₹1 Cr</b><span>revenue</span></div><div class="chips"><span>Info products</span><span>Funnels</span><span>Paid ads</span></div></article>
+      <article class="proj card rv"><div class="top"><span class="ic" style="background:#111214">2018</span><span class="status">Where it began</span></div><h3>Sales expert</h3><p>Started in software sales, where I learned to sell, handle objections and close.</p><div class="metric"><b>Sales</b><span>the base for everything since</span></div><div class="chips"><span>B2B sales</span><span>Closing</span></div></article>
+    </div>
+  </section>
+
+  <section class="wrap" id="journey">
+    <div class="sh"><h2>Journey</h2><p>From selling software to building my own companies.</p></div>
+    <div class="tl">
+      <div class="step card rv"><span class="y mono">2018</span><h3>Sales expert</h3><p>Software company</p></div>
+      <div class="step card rv"><span class="y mono">After 2020</span><h3>Digital products</h3><p>Own platform</p><div class="amt">₹1 Cr</div></div>
+      <div class="step card rv"><span class="y mono">Next</span><h3>Healthy Cube Herbal</h3><p>Supplements Pvt Ltd</p><div class="amt">₹5 Cr</div></div>
+      <div class="step card rv"><span class="y mono">Then</span><h3>Saviour Cosmetic</h3><p>100+ products · team of 40</p><div class="amt">₹20 Cr</div></div>
+      <div class="step card rv now"><span class="y mono">Now</span><h3>AI products</h3><p>40+ tools · Ecom Profix · OMS</p><div class="amt">10K+ users</div></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="skills">
+    <div class="sh"><h2>Skills</h2><p>Growth, operations and building, in one person.</p></div>
+    <div class="skills">
+      <div class="sk card rv"><h3><i></i>Performance marketing</h3><ul><li>Meta Ads</li><li>Conversion API</li><li>Pixel tracking</li><li>Creatives</li><li>ROAS scaling</li></ul></div>
+      <div class="sk card rv"><h3><i></i>E-commerce</h3><ul><li>Shopify</li><li>D2C growth</li><li>COD vs prepaid</li><li>RTO reduction</li><li>Shiprocket</li></ul></div>
+      <div class="sk card rv"><h3><i></i>AI & product</h3><ul><li>Claude API</li><li>AI agents</li><li>Supabase</li><li>Lovable</li><li>Razorpay</li><li>Automation</li></ul></div>
+      <div class="sk card rv"><h3><i></i>Leadership</h3><ul><li>Hiring</li><li>Sales training</li><li>P&L ownership</li><li>WhatsApp sales teams</li></ul></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="contact">
+    <div class="contact">
+      <div class="cbig card rv">
+        <span class="mono" style="color:#8d919b">Contact</span>
+        <h2 style="margin-top:10px">Looking for a startup to <em>go all in on.</em></h2>
+        <p>Full-time role, remote or relocation. Growth, D2C or AI product. I usually reply within a day.</p>
+        <div class="mail"><span id="email">marketingswad@gmail.com</span><button class="btn btn-ghost btn-sm" id="copy" type="button">Copy</button><a class="btn btn-red btn-sm" href="mailto:marketingswad@gmail.com?subject=Let's%20talk%20about%20a%20role">Write</a></div>
+      </div>
+      <div class="clist card rv">
+        <a href="resume.pdf" download><div>Résumé<span>PDF, one page</span></div><i class="arr">↓</i></a>
+        <a href="https://ecomprofix.com" target="_blank" rel="noopener"><div>Ecom Profix<span>My agency</span></div><i class="arr">↗</i></a>
+        <a href="https://github.com/heyswad" target="_blank" rel="noopener"><div>GitHub<span>github.com/heyswad</span></div><i class="arr">↗</i></a>
+        <a href="https://saviourcosmetic.com" target="_blank" rel="noopener"><div>Saviour Cosmetic<span>My D2C brand</span></div><i class="arr">↗</i></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© 2026 Swad · Navi Mumbai, India</span><a href="#top">Back to top ↑</a></div></footer>
+<div class="toast" id="toast">Email copied</div>
+
+<script>
+document.documentElement.classList.add('js');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* header border on scroll */
+const hdr = document.getElementById('hdr');
+addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 8), { passive: true });
+
+/* reveal + count-up */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('in'); io.unobserve(e.target);
+  e.target.querySelectorAll('[data-n]').forEach(countUp);
+}), { threshold: 0.15 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+function countUp(el) {
+  const end = +el.dataset.n; if (reduce) { el.textContent = end; return; }
+  let t0 = null; const dur = 1200;
+  const step = t => { t0 ??= t; const p = Math.min(1, (t - t0) / dur); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+
+/* copy email */
+const toast = document.getElementById('toast');
+document.getElementById('copy').onclick = async () => {
+  const t = document.getElementById('email').textContent;
+  try { await navigator.clipboard.writeText(t); toast.textContent = 'Email copied'; }
+  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('email')); getSelection().removeAllRanges(); getSelection().addRange(r); toast.textContent = 'Press Ctrl+C to copy'; }
+  toast.classList.add('on'); setTimeout(() => toast.classList.remove('on'), 1800);
+};
+
+/* ---------------- video ----------------
+   One 8 s take: 0–1.9 smiles at camera then looks down · 2.0–3.45 typing ·
+   3.5–4.75 looks left · 5.0–6.35 looks right · 6.35–7.95 back to camera.
+   Desktop: the cursor picks left / centre / right. Phones: the whole take loops. */
+const box = document.getElementById('vid'), A = document.getElementById('vA'), B = document.getElementById('vB');
+const bubble = document.getElementById('bubble');
+const desktop = matchMedia('(pointer:fine) and (min-width:900px)').matches && !reduce;
+const SRC = innerWidth < 900 ? 'assets/swad-720.mp4' : 'assets/swad.mp4';
+const SEG = {
+  intro: { s: 0.0, e: 1.9, next: 'type' },
+  type:  { s: 2.0, e: 3.45, loop: true },
+  left:  { s: 3.5, e: 4.75, hold: true, msg: 'Anyone on the left?' },
+  right: { s: 5.0, e: 6.35, hold: true, msg: 'Anyone on the right?' },
+  center:{ s: 6.35, e: 7.95, hold: true, msg: "Hey, it's you! 👋" },
+};
+
+if (reduce) {
+  A.removeAttribute('src');
+} else if (!desktop) {
+  A.src = SRC; A.loop = true; A.autoplay = true; A.play().catch(() => {});
+  B.remove();
+} else {
+  A.src = SRC; B.src = SRC;
+  const vids = [A, B]; let act = 0, cur = null, holdTimer = 0, msgTimer = 0, token = 0;
+  const say = m => { clearTimeout(msgTimer); if (!m) { bubble.classList.remove('on'); return; } bubble.textContent = m; bubble.classList.add('on'); };
+  function play(name) {
+    const seg = SEG[name]; if (cur === seg && !seg.loop) return;
+    clearTimeout(holdTimer);
+    const now = vids[act], t = now.currentTime;
+    // continuous if the new segment starts right where we are
+    if (!now.paused && Math.abs(t - seg.s) < 0.12) { cur = seg; say(seg.msg); return; }
+    const nxt = vids[1 - act]; const my = ++token;
+    const go = () => {
+      if (my !== token) return;
+      nxt.play().catch(() => {});
+      nxt.classList.add('on'); now.classList.remove('on');
+      setTimeout(() => now.pause(), 320);
+      act = 1 - act; cur = seg; say(seg.msg);
+    };
+    nxt.pause();
+    if (Math.abs(nxt.currentTime - seg.s) < 0.04 && nxt.readyState >= 2) go();
+    else { nxt.addEventListener('seeked', go, { once: true }); nxt.currentTime = seg.s; }
+  }
+  function tick() {
+    const v = vids[act];
+    if (cur && !v.paused && v.currentTime >= cur.e) {
+      if (cur.loop) play('type');
+      else if (cur.next) play(cur.next);
+      else if (cur.hold) v.pause();
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  let zone = null, inView = true;
+  addEventListener('pointermove', e => {
+    if (!inView) return;
+    const z = e.clientX < innerWidth * 0.33 ? 'left' : e.clientX > innerWidth * 0.67 ? 'right' : 'center';
+    if (z === zone) return; zone = z;
+    if (!cur || cur === SEG.intro) { zone = null; return; }
+    play(z);
+    clearTimeout(holdTimer);
+    holdTimer = setTimeout(() => { if (zone === z) { zone = null; say(''); play('type'); } }, 3200);
+  }, { passive: true });
+  new IntersectionObserver(es => {
+    inView = es[0].isIntersecting;
+    vids.forEach(v => { if (!inView) v.pause(); });
+    if (inView && cur) { zone = null; play('type'); }
+  }, { threshold: 0.2 }).observe(box);
+  A.addEventListener('loadeddata', () => { cur = SEG.intro; A.currentTime = 0; A.play().catch(() => {}); }, { once: true });
+}
+</script>
 </body>
 </html>
